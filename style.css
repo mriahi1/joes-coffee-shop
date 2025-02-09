@@ -3,51 +3,37 @@
 @tailwind utilities;
 
 @layer components {
-  .hero {
-    @apply bg-cover bg-center h-screen w-full;
+  .navbar {
+    @apply bg-white px-5 py-3 flex justify-between items-center shadow-md;
   }
-
-  .nav {
-    @apply flex justify-between items-center p-5 bg-white shadow-md fixed top-0 w-full z-10;
+  
+  .nav-links {
+    @apply hidden md:flex gap-4 font-semibold;
   }
-
-  .nav-logo {
-    @apply text-lg font-semibold;
-  }
-
-  .nav-items {
-    @apply hidden md:flex space-x-6;
-  }
-
-  .nav-item-link {
-    @apply no-underline text-gray-600 hover:text-blue-500;
-  }
-
+  
   .mobile-nav {
     @apply md:hidden;
   }
-
-  .hero-content {
-    @apply text-center text-white p-8 md:p-24;
+  
+  .hero {
+    @apply bg-cover bg-center bg-no-repeat w-full h-96 flex items-center justify-center text-white;
   }
-
-  .hero-heading {
-    @apply font-bold text-3xl md:text-5xl mb-6;
-  }
-
-  .hero-subheading {
-    @apply font-semibold text-xl md:text-2xl mb-8;
-  }
-
+  
   .cta-button {
-    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300;
+    @apply px-6 py-3 bg-blue-600 text-white rounded-lg mt-5 font-bold hover:bg-blue-700 transition-colors;
   }
-
-  .section {
-    @apply mt-12 md:mt-24 px-5 md:px-24 py-10;
+  
+  .content {
+    @apply p-5 text-center mt-10 md:mt-20 lg:mt-40;
   }
+}
 
-  .footer {
-    @apply bg-gray-800 text-white p-4 text-center;
+@media (min-width: 768px) {
+  .mobile-nav {
+    @apply hidden;
+  }
+  
+  .nav-links {
+    @apply flex;
   }
 }

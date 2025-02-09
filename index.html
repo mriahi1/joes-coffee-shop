@@ -1,62 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Joe's Coffee Shop offers the best locally-sourced coffee and fresh bakery delights in a cozy, welcoming environment.">
+    <meta name="description" content="Joe's Coffee Shop offers the best locally sourced coffee and freshly baked pastries. Join us for a unique café experience!">
     <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Expertly crafted coffee and fresh baked goods awaiting at Joe's Coffee Shop.">
+    <meta property="og:description" content="Your favorite spot for coffee and bakery delights in the heart of the local community.">
     <meta property="og:image" content="https://placehold.co/1200x600?text=Café+&+Bakery">
     <meta property="og:type" content="website">
-    <link rel="icon" href="https://placehold.co/64x64?text=logo">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3" integrity=""></script>
     <title>Joe's Coffee Shop</title>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
-
-<body>
-    <div class="container mx-auto">
-        <header class="flex justify-between items-center p-4 bg-gray-100">
-            <img src="https://placehold.co/64x64?text=logo" alt="Joe's Coffee Shop Logo">
-            <nav>
-                <ul class="flex space-x-4">
-                    <li><a href="#home" class="text-gray-800 hover:text-gray-600">Home</a></li>
-                    <li><a href="#about" class="text-gray-800 hover:text-gray-600">About</a></li>
-                    <li><a href="#contact" class="text-gray-800 hover:text-gray-600">Contact</a></li>
-                </ul>
-            </nav>
-            <div x-data="{ lang: 'en' }" class="flex items-center space-x-4">
-                <button @click="lang = (lang === 'en' ? 'fr' : 'en')" x-text="lang.toUpperCase()" class="text-gray-800 hover:text-gray-600">
-                    EN
-                </button>
+<body x-data="{ lang: 'en' }" class="font-sans">
+    <nav class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-4">
+                    <div>
+                        <a href="#" class="flex items-center py-5 px-2">
+                            <img src="https://placehold.co/64x64?text=logo" alt="Logo" class="h-8 w-8 mr-2">
+                            <span class="font-bold" x-text="lang === 'en' ? 'Joe\'s Coffee Shop' : 'Café de Joe'"></span>
+                        </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="#" class="py-5 px-3" x-text="lang === 'en' ? 'Home' : 'Accueil'"></a>
+                        <a href="#" class="py-5 px-3" x-text="lang === 'en' ? 'About' : 'À Propos'"></a>
+                        <a href="#" class="py-5 px-3" x-text="lang === 'en' ? 'Contact' : 'Contact'"></a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <button @click="lang = (lang === 'en' ? 'fr' : 'en')" x-text="lang.toUpperCase()" class="text-gray-800 hover:text-gray-600"></button>
+                </div>
             </div>
-        </header>
-
-        <section id="hero" class="relative">
-            <img src="https://placehold.co/1200x600?text=Café+&+Bakery" alt="Café and Bakery" class="w-full h-auto" loading="lazy">
-            <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-center text-white bg-black bg-opacity-50">
-                <h1 x-text="lang === 'en' ? 'Welcome to Joe\'s Coffee Shop' : 'Bienvenue chez Joe\'s Coffee Shop'" class="text-4xl font-bold"></h1>
-                <p x-text="lang === 'en' ? 'Your favorite spot for coffee and bakery delights.' : 'Votre café préféré pour le café et les délices de la boulangerie.'"
-                   class="text-xl"></p>
-            </div>
+        </div>
+    </nav>
+    <header>
+        <div class="w-full">
+            <img src="https://placehold.co/1200x600?text=Café+&+Bakery" alt="Café and Bakery Image" class="w-full h-auto object-cover">
+        </div>
+        <div class="text-center p-8">
+            <h1 x-text="lang === 'en' ? 'Welcome to Joe\'s Coffee Shop' : 'Bienvenue chez Joe\'s Coffee Shop'" class="text-3xl font-bold"></h1>
+            <p x-text="lang === 'en' ? 'Your favorite spot for coffee and bakery delights.' : 'Votre endroit préféré pour le café et les délices de la boulangerie.'" class="text-xl my-2"></p>
+            <a href="#" class="px-4 py-2 bg-blue-500 text-white" x-text="lang === 'en' ? 'Get Directions' : 'Obtenir Des Directions'"></a>
+        </div>
+    </header>
+    <main>
+        <section class="container mx-auto px-6 py-10">
+            <h2 x-text="lang === 'en' ? 'About Us' : 'À Propos De Nous'" class="text-2xl font-bold text-center"></h2>
+            <p x-text="lang === 'en' ?
+                'Welcome to **Joe\'s Coffee Shop**, where true coffee enthusiasts and pastry aficionados converge!'
+                : 'Bienvenue chez **Joe\'s Coffee Shop**, où les passionnés de café et les amateurs de pâtisserie se retrouvent !'" class="text-center mt-4"></p>
         </section>
-
-        <section id="about" class="py-12 px-4">
-            <h2 x-text="lang === 'en' ? 'Discover Joe\'s Coffee Shop' : 'Découvrez Joe\'s Coffee Shop'" class="text-3xl font-bold text-center mb-6"></h2>
-            <p x-text="`lang === 'en' ? 'Discover a cozy haven for coffee aficionados and pastry enthusiasts alike at Joe\'s Coffee Shop! Nestled in the heart... and taste the difference for yourself!' : 'Découvrez un havre de paix pour les amateurs de café et les passionnés de pâtisserie chez Joe\'s Coffee Shop! Situé au coeur... et goûtez la différence par vous-même!'`" class="text-lg leading-relaxed"></p>
+        <section class="container mx-auto px-6 py-10">
+            <h2 x-text="lang === 'en' ? 'Contact Us' : 'Contactez-nous'" class="text-2xl font-bold text-center"></h2>
+            <p x-text="lang === 'en' ? 'Visit us at [Address]' : 'Visitez-nous au [Adresse]'" class="text-center mt-4"></p>
+            <p x-text="lang === 'en' ? 'We are open [Opening Hours]' : 'Nous sommes ouverts [Heures d\'ouverture]'" class="text-center"></p>
         </section>
-
-        <section id="contact" class="py-12 px-4 bg-gray-50">
-            <h2 x-text="lang === 'en' ? 'Visit Us' : 'Visitez-nous'" class="text-3xl font-bold text-center mb-6"></h2>
-            <div>
-                <p x-text="lang === 'en' ? 'Location: 123 Main St, City, Country' : 'Adresse : 123 rue Main, Ville, Pays'"></p>
-                <p x-text="lang === 'en' ? 'Hours: Mon-Sun, 7 AM - 9 PM' : 'Heures : Lun-Dim, 7h - 21h'"></p>
-            </div>
-        </section>
-
-    </div>
- 
+    </main>
+    <footer class="bg-gray-200 text-center py-5">
+        <p x-text="lang === 'en' ? '© 2023 Joe\'s Coffee Shop. All rights reserved.' : '© 2023 Joe\'s Coffee Shop. Tous droits réservés.'"></p>
+    </footer>
 </body>
-
 </html>
