@@ -1,100 +1,55 @@
-@import "https://cdn.jsdelivr.net/npm/tailwindcss@3.0.7/dist/tailwind.min.css";
+@import 'https://cdn.jsdelivr.net/npm/tailwindcss@^3.0/dist/tailwind.min.css';
 
-/* Main Structure */
-.container {
-    max-width: 1280px;
-    margin: auto;
-    padding: 0 1rem;
-}
-
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: #000;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.nav-link:hover {
-    color: #007BFF;
-}
-
-/* Hero Section */
-.hero {
-    background-image: url('path_to_your_image.jpg');
+@layer base {
+  .hero {
+    background-image: url('path/to/your/image.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  }
 }
 
-.hero-title {
-    font-size: 3rem;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 1rem;
+@layer components {
+  .navbar {
+    @apply bg-white px-4 py-2 shadow-md sticky top-0 z-50;
+  }
+
+  .nav-links {
+    @apply flex flex-col md:flex-row md:space-x-4 items-center;
+  }
+
+  .nav-item {
+    @apply text-gray-700 hover:text-blue-600 transition-colors duration-300;
+  }
+
+  .hero-text {
+    @apply text-white text-center md:text-left;
+  }
+
+  .cta-button {
+    @apply bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors duration-300;
+  }
+
+  .section {
+    @apply my-12 px-4;
+  }
+
+  .section-heading {
+    @apply text-gray-900 text-2xl font-semibold mb-4;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .footer {
+    @apply bg-gray-800 text-white py-4 mt-8;
+  }
 }
 
-.hero-subtitle {
-    font-size: 1.5rem;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-/* Buttons */
-.btn {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
-
+@media screen and (min-width: 768px) {
+  @layer components {
     .nav-links {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
+      @apply space-x-8;
     }
-
-    .nav-link {
-        padding: 1rem;
-        text-align: center;
-        width: 100%;
-    }
-
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
+  }
 }

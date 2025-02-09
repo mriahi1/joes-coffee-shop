@@ -1,20 +1,31 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.data('languageSwitcher', () => ({
+    Alpine.data('pageState', () => ({
+        isNavMenuOpen: false,
         lang: 'en',
-
-        text: {
-            greeting: {
-                en: 'Hello',
-                fr: 'Bonjour'
+        langText: {
+            en: {
+                toggleNav: "Toggle Navigation",
+                home: "Home",
+                services: "Services",
+                contact: "Contact",
+                language: "EN"
             },
-            question: {
-                en: 'How are you?',
-                fr: 'Comment ça va?'
+            fr: {
+                toggleNav: "Changer Navigation",
+                home: "Accueil",
+                services: "Services",
+                contact: "Contact",
+                language: "FR"
             }
         },
-
-        switchLanguage(newLang) {
-            this.lang = newLang;
+        toggleNavMenu() {
+            this.isNavMenuOpen = !this.isNavMenuOpen;
+        },
+        switchLanguage() {
+            this.lang = this.lang === 'en' ? 'fr' : 'en';
+        },
+        currentText(key) {
+            return this.langText[this.lang][key];
         }
     }));
 });
