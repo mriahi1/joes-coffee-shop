@@ -1,88 +1,68 @@
-Below is a fully structured and SEO optimized `index.html` document for Joe's Coffee Shop, featuring a responsive design, a navigation bar with a language switcher, a hero section with a full-width background image, and a modal booking form:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joe's Coffee Shop</title>
-    <meta name="description" content="Experience the best coffee and homemade baked goods at Joe's Coffee Shop. Visit us for a delightful treat!">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Enjoy expertly brewed coffee and fresh bakery items at Joe's Coffee Shop.">
     <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Experience the best coffee and homemade baked goods at Joe's Coffee Shop.">
+    <meta property="og:description" content="Expertly brewed coffee and fresh bakery items at your local Joe's Coffee Shop.">
+    <meta property="og:image" content="https://source.unsplash.com/1600x900/?Café,&,Bakery,business">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://source.unsplash.com/1600x900/?Café&Bakery">
+    <title>Joe's Coffee Shop</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="language-switcher">
-            <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
-            <button class="lang-btn" onclick="switchLanguage('fr')">FR</button>
-        </div>
-    </nav>
-    <section class="hero" id="home">
-        <div class="hero-background" style="background-image: url('https://source.unsplash.com/1600x900/?Café&Bakery');">
-            <div class="hero-content">
-                <h1>Welcome to Joe's Coffee Shop</h1>
-                <p>Your favorite place for coffee and fresh pastries.</p>
-                <button id="bookBtn">Book a Table</button>
+    <header>
+        <nav id="navbar">
+            <div class="burger-menu" aria-label="Menu" role="button" aria-controls="navigation" aria-expanded="false">
+                <!-- SVG or Font Icon for Burger Menu Here -->
             </div>
-        </div>
-    </section>
-</header>
+            <ul id="navigation" class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="language-switcher">
+                    EN | <a href="#" aria-label="Switch to French">FR</a>
+                </li>
+            </ul>
+        </nav>
+        <section class="hero" style="background-image: url('https://source.unsplash.com/1600x900/?Café,&,Bakery,business');">
+            <h1>Welcome to Joe's Coffee Shop</h1>
+            <button id="modalBtn" class="cta-button">Book A Table</button>
+        </section>
+    </header>
 
-<!-- Modal Form -->
-<div id="bookingModal" class="modal" style="display:none;">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <form id="bookingForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+    <main>
+        <section aria-hidden="true" id="bookingModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+            <div class="modal-content">
+                <button aria-label="Close" class="close-modal">&times;</button>
+                <h2 id="modalTitle">Reservation Form</h2>
+                <p id="modalDesc">Please fill out the form below to book a table at Joe's Coffee Shop.</p>
+                <form id="bookingForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time" required>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
+    <footer>
+        <section id="contact">
+            <p>Contact us at <a href="mailto:info@joescoffee.com">info@joescoffee.com</a> or call us at <a href="tel:+1234567890">+1 234 567 890</a></p>
+        </section>
+    </footer>
 
-            <label for="time">Time:</label>
-            <input type="time" id="time" name="time" required>
-
-            <label for="guests">Number of Guests:</label>
-            <input type="number" id="guests" name="guests" required>
-
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    // Modal handling
-    document.getElementById('bookBtn').onclick = function() {
-        document.getElementById('bookingModal').style.display = 'block';
-    };
-
-    document.querySelector('.close').onclick = function() {
-        document.getElementById('bookingModal').style.display = 'none';
-    };
-
-    window.onclick = function(event) {
-        if (event.target == document.getElementById('bookingModal')) {
-            document.getElementById('bookingModal').style.display = 'none';
-        }
-    };
-
-    // Language switch function (example)
-    function switchLanguage(lang) {
-        alert('Language switch to ' + lang);
-    }
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
 ```
-
-In this example, responsiveness and additional formats are handled through linked CSS (`style.css`) rather than inline styles. JavaScript is minimally used for modal display control and a language switch stub. Ensure the external CSS file (`style.css`) correctly styles this HTML to uphold modern design principles, such as mobile-first design, flexible layouts, and interactive modals.
+In this HTML structure, the layout is kept clean and semantic, ensuring that all elements are appropriately tagged and accessible. A separate CSS file (`style.css`) is linked for styles, and JavaScript functionality (`script.js`) can be used for modal interactions and more dynamic effects like the mobile menu. Include ARIA attributes to improve accessibility, particularly around dynamic content like modal windows.
