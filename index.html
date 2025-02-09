@@ -3,46 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enjoy the finest coffee in town at Joe's Coffee Shop.">
     <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Enjoy the best coffee in town at Joe's Coffee Shop.">
-    <meta property="og:image" content="https://via.placeholder.com/1600x900?text=No+Image+Found">
-    <meta property="og:url" content="http://www.joescoffeeshop.com">
+    <meta property="og:description" content="Discover Joe's Coffee Shop and enjoy our freshly brewed coffee made with love.">
+    <meta property="og:image" content="https://picsum.photos/1600/900">
+    <meta property="og:type" content="website">
     <title>Joe's Coffee Shop</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="burger-menu" onclick="toggleNavMenu()">
-            &#9776;
-        </div>
-        <div class="lang-switcher">
-            <button onclick="switchLanguage('en')">EN</button>
-            <button onclick="switchLanguage('fr')">FR</button>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero" role="banner">
-        <img src="https://via.placeholder.com/1600x900?text=No+Image+Found" alt="Joe's Coffee Shop">
-        <h1>Welcome to Joe's Coffee Shop</h1>
-        <button class="cta-button" onclick="openModal()">Book a Table</button>
+    <header>
+        <!-- Navigation Bar -->
+        <nav>
+            <div id="menuToggle">
+                <!-- Burger menu for mobile -->
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#coffee">Our Coffee</a></li>
+                <li><a href="#visit">Visit Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <!-- Language switcher -->
+            <div class="language-switcher">
+                <button aria-label="Switch to English" onclick="switchLanguage('en')">EN</button>
+                <button aria-label="Switch to French" onclick="switchLanguage('fr')">FR</button>
+            </div>
+        </nav>
+        <!-- Hero Section -->
+        <section>
+            <div style="background-image: url('https://picsum.photos/1600/900');" aria-label="Coffee shop ambiance" role="img"></div>
+            <h1>Welcome to Joe's Coffee Shop</h1>
+            <button id="bookTableBtn">Book a Table</button>
+        </section>
     </header>
 
-    <!-- Modal Form -->
-    <div class="modal" id="bookingModal" aria-hidden="true">
+    <!-- Modal Booking Form -->
+    <div id="modal" class="modal" aria-hidden="true">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <form action="#" method="POST">
+            <form>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+
                 <label for="time">Time:</label>
                 <input type="time" id="time" name="time" required>
-                <button type="submit">Submit</button>
+
+                <input type="submit" value="Book" onclick="bookTable()">
             </form>
         </div>
     </div>
+
+    <script>
+        document.getElementById('bookTableBtn').addEventListener('click', function() {
+            showModal();
+        });
+    </script>
 
 </body>
 </html>
