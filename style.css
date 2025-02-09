@@ -1,39 +1,84 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "https://cdn.jsdelivr.net/npm/tailwindcss@3.0.24/dist/tailwind.min.css";
 
-@layer components {
-  .navbar {
-    @apply bg-white px-5 py-3 flex justify-between items-center shadow-md;
-  }
-  
-  .nav-links {
-    @apply hidden md:flex gap-4 font-semibold;
-  }
-  
-  .mobile-nav {
-    @apply md:hidden;
-  }
-  
-  .hero {
-    @apply bg-cover bg-center bg-no-repeat w-full h-96 flex items-center justify-center text-white;
-  }
-  
-  .cta-button {
-    @apply px-6 py-3 bg-blue-600 text-white rounded-lg mt-5 font-bold hover:bg-blue-700 transition-colors;
-  }
-  
-  .content {
-    @apply p-5 text-center mt-10 md:mt-20 lg:mt-40;
-  }
+/* Navbar */
+.navbar {
+    @apply fixed w-full px-5 py-3 bg-white shadow-md z-50;
 }
 
-@media (min-width: 768px) {
-  .mobile-nav {
-    @apply hidden;
-  }
-  
-  .nav-links {
-    @apply flex;
-  }
+.nav-logo {
+    @apply text-lg font-bold text-gray-800;
+}
+
+.nav-links {
+    @apply hidden md:flex space-x-4;
+}
+
+.nav-item {
+    @apply text-sm text-gray-600 hover:text-gray-800;
+}
+
+.mobile-nav {
+    @apply md:hidden flex items-center;
+}
+
+/* Toggle Menu */
+.menu-icon {
+    @apply block h-6 w-6;
+}
+
+.menu {
+    @apply absolute top-full right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-50;
+}
+
+.menu-item {
+    @apply block px-4 py-2 text-gray-800 hover:bg-gray-100;
+}
+
+/* Hero Section */
+.hero {
+    @apply relative w-full h-96;
+}
+
+.hero-bg {
+    @apply absolute top-0 w-full h-full bg-cover bg-center;
+}
+
+.hero-content {
+    @apply relative text-center text-white z-10;
+    padding-top: 3rem; /* Custom padding to center-align content */
+}
+
+.hero-heading {
+    @apply text-3xl md:text-5xl font-bold;
+}
+
+.hero-subheading {
+    @apply text-xl md:text-2xl;
+}
+
+.hero-button {
+    @apply mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600;
+}
+
+
+/* Main Content */
+.main {
+    @apply py-8 w-full;
+}
+
+.section {
+    @apply my-5;
+}
+
+.heading {
+    @apply text-2xl font-bold text-gray-800 mb-3;
+}
+
+.content {
+    @apply space-y-3 text-gray-600;
+}
+
+/* Footer */
+.footer {
+    @apply py-4 bg-gray-800 text-white text-sm text-center;
 }
