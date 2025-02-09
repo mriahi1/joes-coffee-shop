@@ -3,74 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Enjoy the best coffee in town at Joe's Coffee Shop.">
-    <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://picsum.photos/1600/900">
-    <meta property="og:description" content="Discover Joe's Coffee Shop and our delicious coffee brews, cozy atmosphere, and friendly service.">
-    <link rel="stylesheet" href="style.css">
     <title>Joe's Coffee Shop</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="menu-icon">
-                <span class="navicon"></span>
-            </label>
-            <ul class="nav-links">
-                <li><a href="#"><span data-lang="en">Home</span><span data-lang="fr">Accueil</span></a></li>
-                <li><a href="#"><span data-lang="en">Menu</span><span data-lang="fr">Menu</span></a></li>
-                <li><a href="#"><span data-lang="en">About Us</span><span data-lang="fr">À Propos</span></a></li>
-                <li><a href="#"><span data-lang="en">Contact</span><span data-lang="fr">Contact</span></a></li>
-            </ul>
-        </nav>
-        <div id="language-switcher">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fr">FR</button>
+    <header class="navbar">
+        <div id="menu-toggle" class="burger-menu" onclick="toggleMenu()">
+            <span data-lang="en">Menu</span><span data-lang="fr">Menu</span>
+        </div>
+        <div id="language-switcher" class="language-switcher" onclick="switchLanguage()">
+            <span data-lang="en">EN</span><span data-lang="fr">FR</span>
         </div>
     </header>
     <section class="hero">
-        <img src="https://picsum.photos/1600/900" alt="Coffee shop environment" aria-label="Coffee shop environment">
-        <div class="hero-content">
-            <h1>
-                <span data-lang="en">Welcome to Joe's Coffee Shop</span>
-                <span data-lang="fr">Bienvenue à Joe's Coffee Shop</span>
-            </h1>
-            <p>
-                <span data-lang="en">Your perfect coffee break</span>
-                <span data-lang="fr">Votre pause café parfaite</span>
-            </p>
-            <button id="cta-button" class="cta-btn"> 
-                <span data-lang="en">Book a Table</span>
-                <span data-lang="fr">Réserver une Table</span>
-            </button>
-        </div>
+        <img src="https://picsum.photos/1600/900" alt="Coffee Shop">
+        <button id="cta-button" class="cta-button" onclick="openModal()">
+            <span data-lang="en">Order Now</span><span data-lang="fr">Commander</span>
+        </button>
     </section>
-    <div class="modal" id="booking-form">
+    <div id="modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <form action="#">
-                <label for="name">
-                    <span data-lang="en">Name:</span>
-                    <span data-lang="fr">Nom:</span>
-                </label>
-                <input type="text" id="name" name="name" required>
-                <label for="date">
-                    <span data-lang="en">Date:</span>
-                    <span data-lang="fr">Date:</span>
-                </label>
-                <input type="date" id="date" name="date" required>
-                <label for="time">
-                    <span data-lang="en">Time:</span>
-                    <span data-lang="fr">Heure:</span>
-                </label>
-                <input type="time" id="time" name="time" required>
-                <button type="submit">
-                    <span data-lang="en">Submit</span>
-                    <span data-lang="fr">Soumettre</span>
-                </button>
-            </form>
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p><span data-lang="en">Place your coffee order</span><span data-lang="fr">Passez votre commande de café</span></p>
         </div>
     </div>
     <script src="script.js"></script>

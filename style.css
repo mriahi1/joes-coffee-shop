@@ -1,112 +1,103 @@
-/* Universal Styles */
+/* Basic Resets */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body, html {
-    font-family: "Arial", sans-serif;
-    width: 100%;
-    height: 100%;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
-/* Nav Links styling */
+/* Navigation */
 .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-    padding: 10px;
-    justify-content: center;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 20px 0;
 }
 
-/* Hero Section Styles */
+.nav-links a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #B76E79;
+}
+
+/* Hero section */
 .hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background: url("hero-background.jpg");
-    background-size: cover;
-    height: 300px;
+  background: url('/path/to/hero-image.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  color: white;
+  text-align: center;
 }
 
-/* Mobile first responsive design */
-@media only screen and (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        height: 200px;
-    }
-}
-
-/* Modal form styling */
+/* Modal */
 #modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
 }
 
-#modal.is-active {
-    display: flex;
-    animation: fadeIn 0.5s ease-out;
+#modal.show {
+  display: flex;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* CTA Button */
+.cta-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #B76E79;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-/* CTA Button Animations */
-.cta-button {
-    padding: 15px 30px;
-    background-color: #ff6347;
-    border: none;
-    color: white;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+.cta-btn:hover {
+  transform: scale(1.1);
 }
 
-.cta-button:hover {
-    transform: scale(1.05);
+/* Language Buttons */
+.lang-btn {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #B76E79;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-/* Language Switcher & Active State */
-.language-switcher {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 10px;
+.lang-btn.active,
+.lang-btn:hover {
+  background-color: #B76E79;
+  color: white;
 }
 
-.language-switcher button {
-    border: none;
-    background: none;
-    color: white;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.language-active {
-    font-weight: bold;
-    color: #ff6347;
-}
-
-/* Burger Menu Styles */
+/* Responsive Menu */
 #menuToggle {
-    display: none;
+  display: none;
 }
 
-/* Tablet and Desktop specific adjustements */
-@media only screen and (min-width: 768px) {
-    #menuToggle {
-        display: block;
-    }
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+  }
+
+  #menuToggle {
+    display: block;
+    cursor: pointer;
+  }
 }
