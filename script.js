@@ -1,33 +1,48 @@
-document.addEventListener('alpine:init', () => {
-    Alpine.data('languageSwitcher', () => ({
-        lang: 'en',
+document.addEventListener("alpine:init", () => {
+    Alpine.store("site", {
+        lang: "en",
+        mobileMenuOpen: false,
         toggleNavMenu() {
-            let menu = document.querySelector('#navMenu');
-            menu.classList.toggle('hidden');
+            this.mobileMenuOpen = !this.mobileMenuOpen;
         },
-        switchLanguage() {
-            this.lang = this.lang === 'en' ? 'fr' : 'en';
-            document.documentElement.lang = this.lang;
-            this.updatePageText();
+        switchLanguage(language) {
+            this.lang = language;
         },
-        updatePageText() {
+        updateText() {
             const texts = {
                 en: {
-                    greeting: "Hello",
-                    description: "This is a description in English."
+                    home: "Home",
+                    about: "About",
+                    contact: "Contact"
                 },
                 fr: {
-                    greeting: "Bonjour",
-                    description: "Ceci est une description en Français."
+                    home: "Accueil",
+                    about: "À propos",
+                    contact: "Contact"
                 }
             };
+            let languageTexts = texts[this.lang];
+            document.getElementById('nav-home').textContent = languageTexts.home;
+            document.getElementById('nav-about').textContent = languageTexts.about;
+            document.getElementById('nav-contact').textContent = languageTexts.contact;
+        }
+    });
 
-            document.querySelectorAll('[data-key]').forEach(element => {
-                let key = element.getAttribute('data-key');
-                if (texts[this.lang][key]) {
-                    element.textContent = texts[this.lang][key];
-                }
+    Alpine.data("languageSwitcher", () => ({
+        init() {
+            this.$watch('store.site.lang', () => {
+                this.$store.site.updateText();
+                document.documentElement.lang = this.$store.site.lang;
             });
+        },
+        toggleLanguage() {
+            this.$store.site.switchLanguage(this.$store.site.lang === 'en' ? 'fr' : 'en');
+        }
+    }));
+
+    Alpine.data("menu", () => ({
+        toggleNavMenu() {
+            this.$store.site.toggleNavMenu();
         }
     }));
 });
