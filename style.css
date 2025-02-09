@@ -3,61 +3,31 @@
 @tailwind utilities;
 
 @layer components {
-  .navbar {
-    @apply bg-white px-4 py-2 flex justify-between items-center;
-  }
-
-  .logo {
-    @apply text-2xl font-bold;
-  }
-
-  .nav-links {
-    @apply hidden lg:flex space-x-4;
-  }
-
-  .mobile-nav {
-    @apply lg:hidden;
-  }
-
-  .hero {
-    @apply bg-cover bg-center h-96 w-full flex items-center justify-center text-white;
-  }
-
-  .hero-content {
-    @apply text-center;
-  }
-
-  .hero-title {
-    @apply text-4xl font-bold mb-3;
-  }
-
-  .hero-subtitle {
-    @apply text-xl;
-  }
-
-  .cta-btn {
-    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-5 rounded transition duration-300;
-  }
-
-  .content {
-    @apply mt-8 px-4 py-6;
-  }
-
-  .content-heading {
-    @apply text-3xl italic;
-  }
-
-  .content-body {
-    @apply mt-2;
-  }
-
-  @media (min-width: 1024px) {
-    .desktop-nav {
-      @apply flex;
+    .navbar {
+        @apply bg-white px-4 sm:px-6 lg:px-8;
     }
 
-    .mobile-nav {
-      @apply hidden;
+    .nav-links {
+        @apply mt-5 flex flex-col sm:flex-row sm:space-x-8 sm:mt-0;
     }
-  }
+
+    .nav-link {
+        @apply text-gray-700 hover:text-blue-500;
+    }
+
+    .hero-section {
+        @apply relative bg-cover bg-center w-full h-64 sm:h-96;
+    }
+
+    .hero-content {
+        @apply absolute left-0 right-0 bottom-0 p-4 bg-white bg-opacity-75 sm:bg-opacity-90 text-center;
+    }
+
+    .cta-button {
+        @apply mt-4 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700;
+    }
+
+    .footer {
+        @apply bg-gray-700 text-white py-4 text-center;
+    }
 }
