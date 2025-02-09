@@ -1,120 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Joe's Coffee Shop - Best Coffee in Paris</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-<style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        font-family: 'Nunito', sans-serif;
-        scroll-behavior: smooth;
-    }
-
-    .hero {
-        background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
-        height: 100vh;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        color: white;
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 2.5em;
-        margin-bottom: 0.5em;
-    }
-
-    .hero p {
-        font-size: 1.2em;
-        margin-bottom: 1em;
-    }
-
-    .button {
-        font-size: 1em;
-        padding: 10px 20px;
-        background: #b5651d;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-transform: uppercase;
-    }
-
-    .section {
-        padding: 50px;
-        text-align: center;
-    }
-
-    #services {
-        background: #f4f4f4;
-    }
-
-    #services ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    #services ul li {
-        font-size: 1.2em;
-        padding: 10px;
-    }
-
-    #language-switcher {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: white;
-        border: 1px solid #ccc;
-        z-index: 1000;
-        padding: 5px;
-    }
-
-    footer {
-        text-align: center;
-        padding: 20px;
-        background: #222;
-        color: white;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe's Coffee Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        header, footer {
+            background: #383732;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav {
+            background: #585753;
+            text-align: center;
+            padding: 0.5em 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            background-image: url('https://source.unsplash.com/featured/?coffee,cafe');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .services {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .service {
+            flex: 1;
+            padding: 10px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 10px 30px;
+            background: #d4a373;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 5px;
+            background: #ccc;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <div id="language-switcher">
-        <select onchange="window.location = this.value;">
-            <option value="index.html">EN</option>
-            <option value="index_fr.html">FR</option>
-        </select>
+    <header>
+        <div class="lang-switch" onclick="switchLanguage()">EN</div>
+        <h2>Welcome to Joe's Coffee Shop</h2>
+    </header>
+    <nav>
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+    </nav>
+    <section class="hero" id="hero">
+        <h1>Feel the Taste of Authentic Coffee</h1>
+        <button class="cta-button" onclick="location.href='#book-table'">Book a Table</button>
+    </section>
+    <div class="container" id="services">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service">
+                <h3>Coffee</h3>
+                <p>Enjoy the best coffee in Paris, freshly brewed to start your day right.</p>
+            </div>
+            <div class="service">
+                <h3>Pastries</h3>
+                <p>Delicious, freshly baked pastries perfect with our coffee.</p>
+            </div>
+            <div class="service">
+                <h3>Brunch</h3>
+                <p>Expansive brunch menu available every day. The perfect midday treat!</p>
+            </div>
+        </div>
     </div>
-    <div class="hero">
-        <h1>Welcome to Joe's Coffee Shop</h1>
-        <p>Discover the best coffee in Paris and enjoy a cozy brunch</p>
-        <button class="button" onclick="document.getElementById('book-table').scrollIntoView();">Book a table</button>
-    </div>
-
-    <div id="services" class="section">
-        <h2>Why Choose Us?</h2>
-        <p>Enjoy top-quality coffee, freshly baked pastries, and the best brunch in town.</p>
-        <ul>
-            <li>Exquisite Coffee from Local Roasters</li>
-            <li>Freshly Baked Pastries Every Morning</li>
-            <li>Comfortable and Rustic Atmosphere</li>
-        </ul>
-    </div>
-    
-    <div id="book-table" class="section">
-        <h2>Book Your Table Now!</h2>
-        <p>Reserve a spot online easily and skip the wait!</p>
-        <button class="button">Reserve Online</button>
-    </div>
-    
     <footer>
-        Joe's Coffee Shop © 2023. All rights reserved.
+        <p>Joe's Coffee Shop &copy; 2023 | All Rights Reserved</p>
     </footer>
+    <script>
+        let currentLang = 'en';
+
+        function switchLanguage() {
+            const langSwitcher = document.querySelector(".lang-switch");
+            const headerText = document.querySelector("header h2");
+            const heroText = document.querySelector(".hero h1");
+            const servicesTitle = document.querySelector("#services h2");
+
+            if(currentLang === 'en') {
+                langSwitcher.textContent = 'FR';
+                headerText.textContent = "Bienvenue au Joe's Coffee Shop";
+                heroText.textContent = "Sentez le goût du café authentique";
+                servicesTitle.textContent = "Nos Services";
+                currentLang = 'fr';
+            } else {
+                langSwitcher.textContent = 'EN';
+                headerText.textContent = "Welcome to Joe's Coffee Shop";
+                heroText.textContent = "Feel the Taste of Authentic Coffee";
+                servicesTitle.textContent = "Our Services";
+                currentLang = 'en';
+            }
+        }
+    </script>
 </body>
 </html>
