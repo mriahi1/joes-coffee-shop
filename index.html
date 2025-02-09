@@ -1,85 +1,88 @@
+Below is a fully structured and SEO optimized `index.html` document for Joe's Coffee Shop, featuring a responsive design, a navigation bar with a language switcher, a hero section with a full-width background image, and a modal booking form:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Enjoy the finest coffee in town at Joe's Coffee Shop. Visit us or book a table online!">
-    <meta property="og:image" content="https://source.unsplash.com/1600x900/?coffee,shop">
-    <meta property="og:type" content="website">
-    <meta name="description" content="Joe's Coffee Shop offers an exquisite range of coffee brews and snacks to enrich your day. Book a table with us or stop by to relax in a cozy setting.">
-    <meta name="keywords" content="Joe's Coffee Shop, coffee shop, best coffee, coffee booking, cafe">
     <title>Joe's Coffee Shop</title>
+    <meta name="description" content="Experience the best coffee and homemade baked goods at Joe's Coffee Shop. Visit us for a delightful treat!">
+    <meta property="og:title" content="Joe's Coffee Shop">
+    <meta property="og:description" content="Experience the best coffee and homemade baked goods at Joe's Coffee Shop.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://source.unsplash.com/1600x900/?Café&Bakery">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav class="navigation">
-            <div class="logo">Joe's Coffee Shop</div>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About Us</a>
-                <a href="#menu">Menu</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="language-switcher">
-                <button>EN</button>
-                <button>FR</button>
-            </div>
-        </nav>
-        <section class="hero" style="background-image:url('https://source.unsplash.com/1600x900/?coffee,shop');">
-            <h1>Welcome to Joe's Coffee Shop</h1>
-            <p>Your perfect coffee break destination!</p>
-            <button id="bookTableBtn">Book a Table</button>
-        </section>
-    </header>
-
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <form action="" method="post">
-                <h2>Book a Table</h2>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" required>
-                <label for="time">Time:</label>
-                <input type="time" id="time" name="time" required>
-                <label for="guests">Number of Guests:</label>
-                <input type="number" id="guests" name="guests" required>
-                <button type="submit">Submit</button>
-            </form>
+<header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="language-switcher">
+            <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="switchLanguage('fr')">FR</button>
         </div>
+    </nav>
+    <section class="hero" id="home">
+        <div class="hero-background" style="background-image: url('https://source.unsplash.com/1600x900/?Café&Bakery');">
+            <div class="hero-content">
+                <h1>Welcome to Joe's Coffee Shop</h1>
+                <p>Your favorite place for coffee and fresh pastries.</p>
+                <button id="bookBtn">Book a Table</button>
+            </div>
+        </div>
+    </section>
+</header>
+
+<!-- Modal Form -->
+<div id="bookingModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="bookingForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests" required>
+
+            <button type="submit">Submit</button>
+        </form>
     </div>
+</div>
 
-    <script>
-        const modal = document.getElementById('bookingModal');
-        const btn = document.getElementById('bookTableBtn');
-        const span = document.getElementsByClassName('close')[0];
+<script>
+    // Modal handling
+    document.getElementById('bookBtn').onclick = function() {
+        document.getElementById('bookingModal').style.display = 'block';
+    };
 
-        btn.onclick = function() {
-            modal.style.display = "block";
+    document.querySelector('.close').onclick = function() {
+        document.getElementById('bookingModal').style.display = 'none';
+    };
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('bookingModal')) {
+            document.getElementById('bookingModal').style.display = 'none';
         }
+    };
 
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
+    // Language switch function (example)
+    function switchLanguage(lang) {
+        alert('Language switch to ' + lang);
+    }
+</script>
 </body>
 </html>
 ```
 
-This HTML file includes everything required:
-- The `DOCTYPE` and `html` element define the document type and language.
-- `head` contains SEO optimized meta tags including OpenGraph tags.
-- `header` contains the navigation and hero section.
-- The modal form is created within a div and is hidden by default, controlled by JavaScript.
-- External links for images have been provided to avoid the need for local storage or rights management.
-Make sure to add corresponding CSS in `style.css` to handle the layout, responsiveness, and display settings of elements such as the modal.
+In this example, responsiveness and additional formats are handled through linked CSS (`style.css`) rather than inline styles. JavaScript is minimally used for modal display control and a language switch stub. Ensure the external CSS file (`style.css`) correctly styles this HTML to uphold modern design principles, such as mobile-first design, flexible layouts, and interactive modals.

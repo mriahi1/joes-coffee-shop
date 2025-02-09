@@ -1,16 +1,15 @@
 /* General Styles */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
 }
-
-body {
-    background-color: #f4f4f4;
+html, body {
+    font-size: 16px;
     color: #333;
     line-height: 1.6;
-    font-size: 16px;
+    overflow-x: hidden;
 }
 
 a {
@@ -18,166 +17,193 @@ a {
     color: #333;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+button:focus,
+a:focus,
+input:focus {
+    outline: none;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 /* Header & Navigation */
 header {
-    background: #6F4E37;
+    background: #8B4513;
     color: #fff;
-    padding: 10px 20px;
+    padding: 20px 0;
+    position: relative;
+}
+
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-nav {
+.nav-links {
     display: flex;
-    gap: 15px;
+    list-style: none;
 }
 
-nav a {
-    color: #ffffff;
-    font-weight: bold;
-    transition: color 0.3s ease;
+.nav-links li {
+    padding: 0 15px;
 }
 
-nav a:hover {
-    color: #ffeab0;
-}
-
-.language-switcher {
-    color: #ffff;
-    cursor: pointer;
+.menu-toggle {
+    display: none;
 }
 
 /* Hero Section */
 .hero {
-    background: url('coffee-hero.jpg') no-repeat center center/cover;
-    color: #fff;
+    background: url('/path-to-hero-image.jpg') no-repeat center center/cover;
     height: 80vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    position: relative;
+    align-items: center;
 }
 
 .hero-content {
     text-align: center;
+    color: white;
 }
 
-.hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.hero p {
-    font-size: 1.2em;
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 /* Sections */
-.section {
-    padding: 40px 20px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
+section {
+    padding: 4rem 0;
 }
 
-@media (min-width: 768px) {
-    .section {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.about,
+.services,
+.gallery,
+.testimonials,
+.contact {
+    text-align: center;
 }
 
-.section img {
-    border-radius: 10px;
+.section-title {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #8B4513;
 }
 
-.section h2 {
-    margin-bottom: 10px;
-}
-
-.section p {
-    text-align: justify;
-}
-
-/* Modal Form Styling */
+/* Modal Form Styling (CTA Popup) */
 .modal {
     position: fixed;
     top: 0;
+    right: 0;
+    bottom: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s;
+    z-index: 9999;
 }
 
 .modal.active {
-    visibility: visible;
-    opacity: 1;
+    display: flex;
 }
 
 .modal-content {
-    width: 80%;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
+    padding: 2rem;
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
 }
 
 .modal-close {
     position: absolute;
-    top: 10px;
+    top: 20px;
     right: 20px;
-    font-size: 1.5em;
-    color: #ccc;
-    cursor: pointer;
-}
-
-.modal-close:hover {
+    font-size: 1.5rem;
     color: #333;
+    cursor: pointer;
 }
 
 /* Footer */
 footer {
     background: #333;
-    color: #fff;
+    color: white;
     text-align: center;
-    padding: 10px;
+    padding: 20px 0;
 }
 
-footer p {
-    margin: 10px 0;
-}
-
-/* CTA Button Animations */
-.btn {
-    display: inline-block;
-    background: #6F4E37;
-    color: #fff;
+/* Button and Animations */
+button, .btn {
+    background: #8B4513;
+    color: white;
+    border: none;
     padding: 10px 20px;
     cursor: pointer;
-    border: none;
     transition: background 0.3s ease;
+    border-radius: 5px;
 }
 
-.btn:hover {
-    background: #57352a;
+button:hover, .btn:hover {
+    background: #6A3511;
 }
 
+/* Language Switcher Design */
+.lang-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    list-style: none;
+    display: flex;
+}
+
+.lang-switcher li {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.lang-switcher li.active {
+    text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: initial;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        height: 100vh;
+        top: 70px;
+        background: #8B4513;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-out;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
 ```
-
-This contemporary style sheet implements a mobile-first, aesthetically pleasing design for Joe's Coffee Shop, featuring modern layout techniques like CSS Grid and Flexbox, smooth animations, a modal form for calls-to-action, and a clean footer and header navigation. Adjustments for larger screens are minimal but effective in enhancing the visual hierarchy and spatial arrangement.
+This CSS provides a comprehensive and modern styling starting point for Joe's Coffee Shop's website, integrating mobile-first principles, responsiveness, and interactive animations to enhance the user experience. Adjustments might be needed based on actual HTML structure and class naming.
