@@ -1,45 +1,44 @@
-document.getElementById('menu-toggle').addEventListener('click', toggleNavMenu);
+document.querySelector('#menu-toggle').addEventListener('click', toggleNavMenu);
 document.querySelectorAll('.language-switcher button').forEach(button => {
     button.addEventListener('click', function() {
-        switchLanguage(button.getAttribute('data-lang'));
+        switchLanguage(this.getAttribute('data-lang'));
     });
 });
 
 function toggleNavMenu() {
-    document.getElementById('nav-links').classList.toggle('active');
+    document.querySelector('#nav-links').classList.toggle('active');
 }
 
 function switchLanguage(lang) {
-    const textElements = document.querySelectorAll('[data-lang-text]');
-    textElements.forEach(element => {
-        const textKey = element.getAttribute('data-lang-text');
-        element.textContent = translations[lang][textKey];
-    });
-}
+    const texts = {
+        'en': {
+            'nav_home': 'Home',
+            'nav_about': 'About Us',
+            'nav_menu': 'Menu',
+            'nav_contact': 'Contact',
+            'hero_title': 'Welcome to Joe\'s Coffee Shop',
+            'hero_subtitle': 'The best coffee in town!',
+            'about_heading': 'About Us',
+            'about_content': 'We serve high quality coffee brewed from the finest beans.',
+            'contact_us': 'Contact Us',
+            'follow_us': 'Follow us on social media:'
+        },
+        'fr': {
+            'nav_home': 'Accueil',
+            'nav_about': 'À propos',
+            'nav_menu': 'Menu',
+            'nav_contact': 'Contact',
+            'hero_title': 'Bienvenue chez Joe\'s Coffee Shop',
+            'hero_subtitle': 'Le meilleur café en ville!',
+            'about_heading': 'À propos de nous',
+            'about_content': 'Nous servons un café de haute qualité préparé à partir des meilleurs grains.',
+            'contact_us': 'Nous contacter',
+            'follow_us': 'Suivez-nous sur les réseaux sociaux :'
+        }
+    };
 
-const translations = {
-    'EN': {
-        'title': 'Joe’s Coffee Shop',
-        'home': 'Home',
-        'about': 'About',
-        'services': 'Services',
-        'contact': 'Contact',
-        'about-content': 'Welcome to Joe’s Coffee Shop - your go-to place for the finest coffee in town!',
-        'services-content': 'We offer a wide range of coffee and snacks tailored to our customer’s needs.',
-        'contact-content': 'Contact us for booking and more information.',
-        'switch-to-french': 'Switch to French',
-        'switch-to-english': 'Switch to English'
-    },
-    'FR': {
-        'title': 'Café de Joe',
-        'home': 'Accueil',
-        'about': 'À propos',
-        'services': 'Services',
-        'contact': 'Contact',
-        'about-content': 'Bienvenue au Café de Joe - votre point de rencontre pour le meilleur café en ville!',
-        'services-content': 'Nous offrons une large gamme de cafés et snacks adaptés aux besoins de nos clients.',
-        'contact-content': 'Contactez-nous pour des réservations et plus d’informations.',
-        'switch-to-french': 'Passer au français',
-        'switch-to-english': 'Passer à l’anglais'
-    }
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.textContent = texts[lang][key];
+    });
 }
