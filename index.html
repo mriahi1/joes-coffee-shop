@@ -3,64 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Enjoy the finest coffee and fresh bakery delights at Joe's Coffee Shop, your local community hub for top-tier coffee experiences and home-baked treats.">
+    <meta name="description" content="Joe's Coffee Shop offers the finest locally roasted coffee and freshly baked pastries in your neighborhood. Visit us for a cup of perfection!">
     <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Serving exceptional coffee and freshly baked goodies in the heart of your community. Come visit today!">
-    <meta property="og:image" content="https://source.unsplash.com/1200x600/?Café,&,Bakery">
+    <meta property="og:description" content="Experience the best local coffee and fresh pastries at Joe's Coffee Shop.">
+    <meta property="og:image" content="https://picsum.photos/1200/600?random=1&blur">
     <meta property="og:type" content="website">
     <title>Joe's Coffee Shop</title>
-    <link href="styles.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@alpinejs" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="logo">Joe's Coffee Shop</div>
-        <div class="nav-links">
-            <a href="#home" class="nav-item">Home</a>
-            <a href="#about" class="nav-item">About</a>
-            <a href="#contact" class="nav-item">Contact</a>
-        </div>
-        <div class="language-switcher" x-data="{ lang: 'EN' }">
-            <button x-on:click="lang = lang === 'EN' ? 'FR' : 'EN'">
-                <span x-text="lang"></span>
-            </button>
+<body class="bg-gray-100">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-4">
+                    <div>
+                        <a href="#" class="flex items-center py-5 px-2 text-gray-700">
+                            <img src="logo.png" alt="Joe's Coffee Shop Logo" class="h-8 w-8 mr-2">
+                            <span class="font-bold">Joe's Coffee Shop</span>
+                        </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Home</a>
+                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">About</a>
+                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Contact</a>
+                    </div>
+                </div>
+                <!-- Language switcher -->
+                <div x-data="{ open: false }" class="hidden md:flex items-center">
+                    <button @click="open = !open" class="py-5 px-3 text-gray-700 hover:text-gray-900">EN</button>
+                    <div x-show="open" @click.away="open = false">
+                        <button @click="open = false" class="py-5 px-3 text-gray-700 hover:text-gray-900">FR</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <img src="https://source.unsplash.com/1200x600/?Café,&,Bakery" alt="Joe's Coffee Shop" loading="lazy">
-        <div class="hero-content">
-            <h1>Welcome to Joe's Coffee Shop</h1>
-            <p>Your favorite place for coffee and fresh bakery delights!</p>
-            <a href="#about" class="cta">Learn More</a>
+    <!-- Hero Section -->
+    <div class="relative">
+        <img class="w-full h-64 object-cover" src="https://picsum.photos/1200/600?random=1&blur" alt="Coffee shop background" loading="lazy">
+        <div class="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div class="text-center">
+                <h1 class="text-white text-3xl font-bold">Welcome to Joe's Coffee Shop</h1>
+                <p class="text-white mt-4">The best local coffee and fresh pastries in town.</p>
+                <a href="#contact" class="mt-5 inline-block bg-yellow-500 text-black py-2 px-4 rounded hover:bg-yellow-600">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="text-gray-600 body-font">
+        <div class="container mx-auto px-5 py-24">
+            <div class="mx-auto">
+                <h2 class="text-3xl font-medium title-font text-gray-900 mb-4">About Us</h2>
+                <p class="leading-relaxed text-lg">Experience the heartwarming ambiance and delicious tastes at Joe's Coffee Shop, a cherished café and bakery...</p>
+            </div>
         </div>
     </section>
 
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>Joe's Coffee Shop is the quintessential neighborhood hub in the heart of your locality, serving a delightful array of fresh-brewed local coffee and handcrafted bakery delights. Established with a passion for quality and a warm community vibe, Joe's invites coffee aficionados and casual café-goers alike to indulge in a coffee experience that's both authentic and enchanting.</p>
-        <p>At Joe's Coffee Shop, every cup of coffee is a masterpiece, brewed from locally sourced beans that support local farmers and embody a rich, aromatic flavor profile unique to our region. Whether you're craving a robust espresso, a silky flat white, or one of Joe's signature lattes, each sip promises a top-tier taste that coffee lovers cherish.</p>
-        <p>Not to be outdone, our bakery offers a sinful selection of freshly baked goods, crafted daily on the premises. From buttery croissants and rich, decadent pastries to wholesome bread and seasonal treats, Joe's blends traditional baking techniques with innovative flavors that perfectly complement our coffee offerings.</p>
-        <p>Joe's isn't just about great coffee and treats, though. It's a community gathering space, designed with comfort and connectivity in mind. Whether you're here to meet friends, work remotely, or just enjoy a moment of solitude, our welcoming atmosphere and friendly staff make Joe's your home away from home.</p>
-        <p>Experience the local flavor, unmatched comfort, and genuine hospitality at Joe's Coffee Shop. We're more than just a coffee shop – we're a part of your community. Visit us today and discover why we are the favorite local destination for all things coffee and bakery.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h2 class="text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h2>
+                <p class="w-full leading-relaxed text-gray-500">555 Coffee Blvd, Townsville, TX 75001. Open Mon-Sat 7am-7pm.</p>
+            </div>
+            <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                <form action="#" method="POST" class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/2">
+                        <input class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2" placeholder="Name" type="text" name="name">
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <input class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2" placeholder="Email" type="email" name="email">
+                    </div>
+                    <div class="p-2 w-full">
+                        <textarea class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-indigo-500 text-base px-4 py-2 resize-none block" placeholder="Message" name="message"></textarea>
+                    </div>
+                    <div class="p-2 w-full">
+                        <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
-
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p>Find us at the heart of your city!</p>
-        <address>123 Coffee Street, Coffee Town, CT 12345</address>
-        <p>Open Monday - Friday: 8 AM - 6 PM</p>
-        <form action="submit_form.php" method="post">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 Joe's Coffee Shop. All rights reserved.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

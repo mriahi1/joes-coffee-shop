@@ -2,32 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
 @layer components {
-    .navbar {
-        @apply bg-white px-4 sm:px-6 lg:px-8;
-    }
+  .navbar {
+    @apply bg-white p-4 flex justify-between items-center;
+  }
 
-    .nav-links {
-        @apply mt-5 flex flex-col sm:flex-row sm:space-x-8 sm:mt-0;
-    }
+  .nav-items {
+    @apply hidden md:flex md:space-x-6;
+  }
 
-    .nav-link {
-        @apply text-gray-700 hover:text-blue-500;
-    }
+  .hero {
+    @apply bg-cover bg-center h-[60vh] flex items-center justify-center;
+  }
 
-    .hero-section {
-        @apply relative bg-cover bg-center w-full h-64 sm:h-96;
-    }
+  .hero-title {
+    @apply text-white text-4xl md:text-6xl;
+  }
 
-    .hero-content {
-        @apply absolute left-0 right-0 bottom-0 p-4 bg-white bg-opacity-75 sm:bg-opacity-90 text-center;
-    }
+  .cta-btn {
+    @apply mt-4 px-6 py-2 bg-blue-500 text-white rounded-md shadow hover:bg-blue-600;
+  }
 
-    .cta-button {
-        @apply mt-4 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700;
-    }
+  .features {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6 p-6;
+  }
 
-    .footer {
-        @apply bg-gray-700 text-white py-4 text-center;
-    }
+  .feature-block {
+    @apply p-4 bg-white rounded-lg shadow-lg text-center;
+  }
+
+  .feature-title {
+    @apply text-xl font-semibold;
+  }
+
+  .feature-description {
+    @apply mt-2;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-items {
+    @apply flex flex-col;
+  }
 }
