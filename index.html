@@ -3,61 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Enjoy the finest coffee and fresh baked goods at Joe's Coffee Shop. Located in the heart of the community, Joe's is your destination for a cozy coffee break.">
-    <meta property="og:title" content="Joe's Coffee Shop - Home of Fresh Coffee & Baked Goods">
-    <meta property="og:description" content="Discover local coffee perfection and decadent bakery delights at Joe's Coffee Shop. Your cozy neighborhood spot for a fresh brew and a friendly atmosphere.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.joescoffeeshop.com">
+    <meta name="description" content="Enjoy expertly brewed coffee and freshly baked pastries at Joe's Coffee Shop, your local neighborhood cafe!">
+    <meta property="og:title" content="Joe's Coffee Shop">
+    <meta property="og:description" content="Discover the best coffee and bakery delights in town at Joe's Coffee Shop.">
     <meta property="og:image" content="https://placehold.co/1200x600?text=Café+&+Bakery">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.5/dist/tailwind.min.css" rel="stylesheet">
+    <meta property="og:type" content="website">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <title>Joe's Coffee Shop</title>
 </head>
 <body>
-    <nav class="bg-white shadow p-4 flex justify-between align-middle">
-        <div class="logo flex">
-            <img src="https://placehold.co/64x64?text=logo" alt="Joe's Coffee Shop">
+    <!-- Navigation Bar -->
+    <div class="flex justify-between items-center p-4">
+        <img src="https://placehold.co/64x64?text=logo" alt="Joe's Coffee Shop Logo" class="h-16 w-16">
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-gray-800 hover:text-gray-600">Home</a></li>
+                <li><a href="#" class="text-gray-800 hover:text-gray-600">About</a></li>
+                <li><a href="#" class="text-gray-800 hover:text-gray-600">Contact</a></li>
+            </ul>
+        </nav>
+        <div x-data="{ lang: 'EN' }">
+            <button @click="lang = 'FR'" x-show="lang === 'EN'" class="px-2 py-1 bg-gray-200">FR</button>
+            <button @click="lang = 'EN'" x-show="lang === 'FR'" class="px-2 py-1 bg-gray-200">EN</button>
         </div>
-        <ul class="flex gap-4">
-            <li><a href="#home" class="text-gray-700 hover:text-black">Home</a></li>
-            <li><a href="#about" class="text-gray-700 hover:text-black">About</a></li>
-            <li><a href="#contact" class="text-gray-700 hover:text-black">Contact</a></li>
-        </ul>
-        <div class="language-switcher">
-            <button class="text-gray-700 hover:text-black">EN</button> |
-            <button class="text-gray-700 hover:text-black">FR</button>
-        </div>
-    </nav>
+    </div>
 
-    <header id="home" class="relative">
-        <img src="https://placehold.co/1200x600?text=Café+&+Bakery" alt="Café & Bakery" class="w-full h-auto">
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <h1 class="text-xl text-white font-bold">Welcome to Joe's Coffee Shop!</h1>
-            <a href="#about" class="mt-4 inline-block px-6 py-2 bg-red-600 text-white font-bold rounded">Explore More</a>
+    <!-- Hero Section -->
+    <div class="relative">
+        <img src="https://placehold.co/1200x600?text=Café+&+Bakery" alt="Café and Bakery" class="w-full h-auto" loading="lazy">
+        <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white bg-black bg-opacity-50">
+            <h1 class="text-4xl font-bold">Welcome to Joe's Coffee Shop</h1>
+            <p class="mt-2 text-xl">Your favorite spot for coffee and pastries!</p>
+            <a href="#" class="mt-4 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded">Visit Us Today</a>
         </div>
-    </header>
+    </div>
 
-    <section id="about" class="px-8 py-16 bg-gray-100">
-        <h2 class="text-2xl font-bold text-center">About Us</h2>
-        <p class="mt-4 max-w-4xl mx-auto text-center">
-            Welcome to Joe's Coffee Shop, your ultimate neighborhood gem for the freshest local coffee and mouthwatering baked goods! Tucked in the heart of your community, Joe's offers a cozy, inviting atmosphere perfect for coffee enthusiasts and bakery aficionados alike.
+    <!-- About Section -->
+    <div class="text-gray-800 p-8">
+        <h2 class="text-3xl font-bold">About Us</h2>
+        <p class="mt-4 text-lg">
+            Discover the heart and soul of your local neighborhood at Joe's Coffee Shop, the premier destination for coffee enthusiasts and bakery lovers alike! Nestled in the community, Joe's Coffee Shop offers a warm, inviting atmosphere that's perfect for sipping artisanally crafted coffee and indulging in freshly baked pastries.
         </p>
-        <p class="mt-4 max-w-4xl mx-auto text-center">
-            At Joe&#39;s Coffee Shop, we take pride in sourcing our coffee beans from the best local roasters, ensuring every cup we serve is rich in flavor and brewed to perfection.
-        </p>
-    </section>
-
-    <section id="contact" class="px-8 py-16">
-        <h2 class="text-2xl font-bold text-center">Contact Us</h2>
-        <div class="max-w-4xl mx-auto mt-4">
-            <form class="flex flex-col gap-4">
-                <input type="text" placeholder="Your Name" class="p-2 border border-gray-300 rounded">
-                <input type="email" placeholder="Your Email" class="p-2 border border-gray-300 rounded">
-                <textarea placeholder="Your Message" class="p-2 border border-gray-300 rounded"></textarea>
-                <button type="submit" class="px-6 py-2 bg-red-600 text-white font-bold rounded self-center">Send Message</button>
+        <!-- Additional about information would be here -->
+    </div>
+  
+    <!-- Contact Section -->
+    <div class="bg-gray-100 p-8">
+        <h2 class="text-3xl font-bold">Contact Us</h2>
+        <div class="mt-4">
+            <p>Location: 123 Coffee Ave, Townsville</p>
+            <p>Hours: Mon-Fri 8am - 8pm</p>
+            <form action="#" method="POST" class="mt-4">
+                <input type="text" placeholder="Your name" class="p-2 border border-gray-300">
+                <input type="email" placeholder="Your email" class="p-2 border border-gray-300">
+                <textarea placeholder="Your message" class="p-2 border border-gray-300"></textarea>
+                <button type="submit" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white">Send Message</button>
             </form>
         </div>
-    </section>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
 </html>
