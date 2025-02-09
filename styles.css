@@ -1,1 +1,119 @@
-body {font-family: Arial, sans-serif; margin: 0; padding: 0;} nav ul {display: flex; justify-content: space-between; list-style: none; padding: 20px; background: #333; color: #fff;} #hero {background: url('hero.jpg') no-repeat center; height: 300px; color: #fff; text-align: center; padding-top: 100px;} .grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;} img {width: 100%; height: auto;} form {display: grid; grid-template-columns: 1fr; gap: 10px;}
+```css
+/* General styles and resets */
+html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Times New Roman', Times, serif;
+    background: #f4eee8;
+    color: #3b3a30;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #d3bdb0;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #f7f4f3;
+}
+
+/* Hero Section */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('coffee-shop.jpg') no-repeat center center/cover;
+    height: 100vh;
+    text-align: center;
+    color: #ffffff;
+}
+
+header h1 {
+    font-size: 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 1rem;
+}
+
+/* Main Content Sections */
+section {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 15px rgba(59, 58, 48, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Footer */
+footer {
+    background-color: #3b3a30;
+    color: #d3bdb0;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+.footer-text {
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header {
+        height: 60vh;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        grid-template-columns: 1fr;
+    }
+}
+```
+This CSS file sets up a mobile-friendly, stylish design for Joe's Coffee Shop using a Parisian-inspired color palette. The navigation bar, hero section, main sections, and footer are all covered with appropriate styles and responsive design considerations.
