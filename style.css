@@ -1,67 +1,100 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "https://cdn.jsdelivr.net/npm/tailwindcss@3.0.7/dist/tailwind.min.css";
 
-@layer base {
-  body {
-    @apply bg-white;
-  }
+/* Main Structure */
+.container {
+    max-width: 1280px;
+    margin: auto;
+    padding: 0 1rem;
 }
 
-@layer components {
-  .nav {
-    @apply bg-gray-800 text-white p-5;
-  }
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
 
-  .nav a {
-    @apply text-white py-2 px-4;
-  }
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
 
-  .nav a:hover {
-    @apply underline;
-  }
+.nav-link {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 500;
+}
 
-  .hero {
-    @apply bg-cover bg-center h-screen flex items-center justify-center;
-  }
+.nav-link:hover {
+    color: #007BFF;
+}
 
-  .hero h1 {
-    @apply text-white text-4xl md:text-6xl font-bold;
-  }
+/* Hero Section */
+.hero {
+    background-image: url('path_to_your_image.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
-  .hero p {
-    @apply text-white text-lg md:text-xl mt-4;
-  }
+.hero-title {
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1rem;
+}
 
-  .hero button {
-    @apply mt-8 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300;
-  }
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2rem;
+}
 
-  .container {
-    @apply max-w-5xl mx-auto px-4 md:px-6;
-  }
+/* Buttons */
+.btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
 
-  .section {
-    @apply py-12;
-  }
+.btn:hover {
+    background-color: #0056b3;
+}
 
-  .section h2 {
-    @apply text-2xl font-bold mb-4;
-  }
+/* Media Queries */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
 
-  .card {
-    @apply shadow-lg rounded-lg overflow-hidden;
-  }
-  
-  .card img {
-    @apply w-full h-64 object-cover;
-  }
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
 
-  .card-text {
-    @apply p-4;
-  }
+    .nav-link {
+        padding: 1rem;
+        text-align: center;
+        width: 100%;
+    }
 
-  .footer {
-    @apply bg-gray-700 text-white text-sm p-4 text-center;
-  }
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
 }
