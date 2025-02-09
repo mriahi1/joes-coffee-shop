@@ -1,93 +1,93 @@
-// script.js
+Below is a JavaScript file `script.js` that includes all requested features for Joe's Coffee Shop:
 
+```javascript
 document.addEventListener("DOMContentLoaded", function() {
-    initSmoothScrolling();
+    initSmoothScroll();
     initMobileNavToggle();
     initLanguageSwitcher();
-    initCTAClickTracking();
+    trackCTAClicks();
     initModalFormToggle();
 });
 
-function initSmoothScrolling() {
+function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            let targetId = this.getAttribute('href');
+            let targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
     });
 }
 
 function initMobileNavToggle() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    navToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('is-active');
+    const menuBtn = document.querySelector('.menu-btn');
+    const navigation = document.querySelector('.navigation');
+    menuBtn.addEventListener('click', function() {
+        navigation.classList.toggle('navigation-open');
     });
 }
 
 function initLanguageSwitcher() {
     const languageToggleButton = document.querySelector('.language-toggle');
-    const currentLanguageDisplay = document.querySelector('.current-language');
-
     languageToggleButton.addEventListener('click', function() {
-        const currentLanguage = currentLanguageDisplay.innerText;
-        if (currentLanguage === 'EN') {
-            currentLanguageDisplay.innerText = 'FR';
-            // Add further implementation to handle site content language switching
+        const currentLang = document.documentElement.lang;
+        if (currentLang === 'en') {
+            document.documentElement.lang = 'fr';
+            this.textContent = 'English';
         } else {
-            currentLanguageDisplay.innerText = 'EN';
-            // Revert to English language content
+            document.documentElement.lang = 'en';
+            this.textContent = 'Français';
         }
     });
 }
 
-function initCTAClickTracking() {
+function trackCTAClicks() {
     const ctaButtons = document.querySelectorAll('.cta-button');
-    
     ctaButtons.forEach(button => {
         button.addEventListener('click', function() {
-            trackEvent('CTA Click', {
-                location: button.innerText
-            });
+            console.log(`CTA with ID ${this.id} clicked.`);
         });
     });
-}
-
-function trackEvent(action, details) {
-    console.log(`Event Tracked: ${action}`, details);
-    // Implementation can be added for integration with analytics tools
 }
 
 function initModalFormToggle() {
     const modal = document.querySelector('.modal');
-    const modalBg = document.querySelector('.modal-background');
-    const modalCTA = document.querySelectorAll('.modal-cta-button');
-
-    modalCTA.forEach(cta => {
-        cta.addEventListener('click', () => {
-            modal.classList.add('is-active');
-        });
+    const modalBtn = document.querySelector('.modal-button');
+    const closeBtn = document.querySelector('.modal-close-button');
+    
+    modalBtn.addEventListener('click', function() {
+        modal.style.display = 'block';
     });
 
-    modalBg.addEventListener('click', () => {
-        modal.classList.remove('is-active');
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
     });
 }
 ```
 
-### Explanation of the script.js code:
+### Explanation:
 
-1. **Document Initialization**: All functions setup to initialize after the DOM is fully loaded.
-2. **Smooth Scrolling**: Scrolls smoothly to sections in the page when clicking on anchor links.
-3. **Mobile Navigation Toggle**: Allows the navigation menu to be toggled on mobile devices.
-4. **Language Switcher**: Switches text display between English (EN) and French (FR) - functionality should be extended to handle actual site content switching.
-5. **CTA Click Tracking**: Tracks clicks on CTA buttons for analytics purposes. The actual deployment might need integration with tools like Google Analytics.
-6. **Modal Form Toggle**: Handles the opening and closing of a modal form, often used for contact or sign-up purposes.
+1. **Smooth Scrolling**: When any link is clicked that leads to an anchor (`#`), it smoothly scrolls to that section rather than just jumping.
 
-This script provides a basic frontend interaction setting for a coffee shop website, ensuring smooth navigation, responsive layout interactions, a minimalistic language swap, and user interaction tracking. Effective enhancements could include actual content switching in the language toggle and a more robust analytics integration.
+2. **Mobile-friendly Navigation Toggle**: A menu button that toggles a class to open/close the navigation menu, specified for mobile screens.
+
+3. **Language Switcher**: Toggle button to switch the HTML document's language attribute between English and French and changes the button text accordingly.
+
+4. **CTA Click Tracking**: Console logs the ID of clicked CTA buttons for tracking purposes, useful for analyzing the effectiveness of different calls to action.
+
+5. **Modal Form Toggle**: Controls the visibility of a modal dialog form. It can be opened by a CTA button and closed either by clicking a close button in the modal or clicking outside the modal.
+
+This script assumes the structure and class names of the HTML elements correspond with the code provided. Make sure the HTML elements' classes and IDs match those used in the script, or modify the selector strings in the script accordingly.

@@ -3,67 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Joe's Coffee Shop - the best coffee in town!">
+    <meta name="description" content="Joe's Coffee Shop offers the finest coffee in town with a cozy ambiance.">
     <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Discover the finest coffee, freshly baked goods and a cozy atmosphere.">
+    <meta property="og:description" content="Best coffee and bakery items at Joe's. Visit us today!">
     <meta property="og:image" content="https://source.unsplash.com/1600x900/?Café,&,Bakery,business">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
     <title>Joe's Coffee Shop</title>
 </head>
 <body>
-    <header>
-        <nav aria-label="Main navigation">
-            <div class="menu" id="burgerMenu">
-                <button aria-label="Open menu" onclick="toggleMenu()">Menu</button>
-                <div class="dropdown-content">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#menu">Menu</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-            <div class="lang-switcher">
-                <button onclick="setLang('en')">EN</button>
-                <button onclick="setLang('fr')">FR</button>
-            </div>
-        </nav>
-        <section class="hero" style="background-image: url('https://source.unsplash.com/1600x900/?Café,&,Bakery,business');">
-            <h1>Welcome to Joe's Coffee Shop</h1>
-            <button class="cta" aria-label="Book a table" onclick="openModal()">Book a Table</button>
-        </section>
-    </header>
+    <!-- Navigation Bar -->
+    <nav>
+        <div id="menu-toggle" aria-label="Open navigation menu" tabindex="0">&#9776;</div>
+        <ul id="navigation" class="hidden">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="lang-switcher">
+                <a href="#" aria-label="Switch to French">FR</a> | 
+                <a href="#" aria-label="Switch to English" aria-current="page">EN</a>
+            </li>
+        </ul>
+    </nav>
 
-    <main>
-        <div id="modal" class="modal" aria-hidden="true">
-            <div class="modal-content">
-                <span class="close" aria-label="Close" onclick="closeModal()">&times;</span>
-                <form id="bookingForm" novalidate>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" required>
-                    <label for="time">Time:</label>
-                    <input type="time" id="time" name="time" required>
-                    <button type="submit" onclick="submitForm()">Submit</button>
-                </form>
-            </div>
+    <!-- Hero Section -->
+    <section id="home" style="background-image: url('https://source.unsplash.com/1600x900/?Café,&,Bakery,business');">
+        <h1>Welcome to Joe's Coffee Shop</h1>
+        <button id="bookTable">Book a Table</button>
+    </section>
+
+    <!-- Modal Booking Form (Hidden by default) -->
+    <div id="bookingModal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" aria-label="Close">&times;</span>
+            <h2>Book a Table</h2>
+            <form id="bookingForm" novalidate>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required aria-required="true">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required aria-required="true">
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required aria-required="true">
+                <label for="guests">Number of guests:</label>
+                <input type="number" id="guests" name="guests" min="1" max="10" required aria-required="true">
+                <button type="submit">Submit</button>
+            </form>
         </div>
-        <section id="contact" class="contact">
-            <h2>Contact Us</h2>
-            <p>Email: <a href="mailto:info@joescoffeeshop.com">info@joescoffeeshop.com</a></p>
-            <p>Phone: <a href="tel:+1-555-123-4567">+1-555-123-4567</a></p>
-        </section>
-    </main>
+    </div>
 
-    <footer>
-        <p>© 2023 Joe's Coffee Shop. All rights reserved.</p>
-    </footer>
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="photo-grid">
+            <img src="https://source.unsplash.com/400x300/?Café,&,Bakery,coffee" alt="Café Coffee">
+            <img src="https://source.unsplash.com/400x300/?Café,&,Bakery,bakery" alt="Café Bakery">
+            <img src="https://source.unsplash.com/400x300/?Café,&,Bakery,ambiance" alt="Café Ambiance">
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:info@joescoffeeshop.com">info@joescoffeeshop.com</a></p>
+        <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+    </section>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
 ```
-Note: For the JavaScript functionalities `toggleMenu`, `openModal`, `closeModal`, `setLang`, and `submitForm` you need to implement these in the `script.js` file. Forms handling and additional effects should be implemented there as well as the CSS styles in `style.css` for a complete solution. Thus, the `style.css` would handle all visual aspects including responsiveness and styling of modal and buttons, while animations could be defined using CSS transitions or JavaScript-driven animations.
+
+This HTML code structures Joe's Coffee Shop's website with a navigation bar, hero section, modal booking form, gallery, and contact information. The modal form is hidden by default and all the interactive elements are equipped with proper ARIA attributes to enhance accessibility. This webpage requires additional CSS in `style.css` and JavaScript in `scripts.js` to handle styles, modal animations, menu toggling, and form validation.
