@@ -1,57 +1,50 @@
+@import url('https://cdn.tailwindcss.com');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .hero-section {
+    @apply bg-cover bg-center bg-no-repeat;
+  }
+}
+
 @layer components {
   .navbar {
-    @apply bg-white px-6 py-4 shadow-md fixed w-full z-50;
+    @apply flex justify-between items-center p-5 md:px-10;
   }
   
-  .nav-content {
-    @apply flex justify-between items-center;
+  .nav-list {
+    @apply hidden md:flex gap-5 uppercase font-semibold;
   }
   
-  .logo {
-    @apply text-xl font-bold;
+  .nav-toggle {
+    @apply md:hidden;
   }
   
-  .nav-links {
-    @apply hidden md:flex gap-4;
+  .hero-section {
+    @apply text-center py-20 px-10 md:py-48;
   }
   
-  .nav-link {
-    @apply text-gray-600 hover:text-blue-500 transition duration-300;
-  }
-  
-  .hamburger {
-    @apply md:hidden cursor-pointer;
-  }
-  
-  .hero {
-    @apply bg-center bg-cover flex items-center justify-center text-center h-screen bg-no-repeat;
-  }
-
   .hero-title {
     @apply text-4xl md:text-6xl font-bold text-white;
   }
-
+  
   .hero-subtitle {
-    @apply text-xl md:text-3xl text-gray-300 mt-4;
+    @apply text-xl md:text-2xl text-white my-5;
   }
-
+  
   .cta-button {
-    @apply mt-6 px-6 py-2 bg-blue-500 text-white font-bold rounded transition duration-300 hover:bg-blue-700;
+    @apply text-lg md:text-xl px-5 py-3 bg-blue-500 text-white font-medium rounded hover:bg-blue-600;
   }
+}
 
-  .main {
-    @apply pt-16;
+@media (min-width: 768px) {
+  .nav-list {
+    @apply flex;
   }
-
-  .section {
-    @apply py-8;
-  }
-
-  .footer {
-    @apply bg-gray-800 text-gray-200 p-4 text-center;
+  
+  .nav-toggle {
+    @apply hidden;
   }
 }

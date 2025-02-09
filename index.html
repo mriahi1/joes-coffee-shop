@@ -1,68 +1,77 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{ lang: 'en' }">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Joe's Coffee Shop offers premium, barista-quality coffee and freshly baked goods in a cozy, inviting atmosphere. Experience the local charm and genuine hospitality today!">
+    <meta name="description" content="Experience the best coffee and freshly baked goods at Joe's Coffee Shop. Your local favorite for a warm, inviting atmosphere.">
     <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Your local café & bakery serving meticulously crafted coffee and freshly baked goods.">
+    <meta property="og:description" content="Delicious coffee and fresh bakery items in the heart of your community. Visit Joe's Coffee Shop today.">
     <meta property="og:image" content="https://placehold.co/1200x600?text=Café+&+Bakery">
-    <meta property="og:type" content="website">
-    <meta name="robots" content="index, follow">
+    <meta property="og:url" content="http://www.joescoffeeshop.com">
+    <meta name="twitter:card" content="summary_large_image">
     <title>Joe's Coffee Shop</title>
-    <link href="style.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@alpinejs" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^3.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 <body>
-    <header class="bg-gray-900 text-white p-5">
-        <div class="container mx-auto flex justify-between items-center">
-            <img src="https://placehold.co/64x64?text=logo" alt="Joe's Coffee Shop Logo" class="logo">
-            <nav>
-                <a href="#home" class="mx-4">Home</a>
-                <a href="#about" class="mx-4">About</a>
-                <a href="#contact" class="mx-4">Contact</a>
-            </nav>
-            <div class="language-switcher">
-                <button @click="lang = 'en'" x-bind:class="{ 'text-blue-500': lang === 'en' }">EN</button>/
-                <button @click="lang = 'fr'" x-bind:class="{ 'text-blue-500': lang === 'fr' }">FR</button>
+    <header class="container mx-auto p-4">
+        <nav class="flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="https://placehold.co/64x64?text=logo" alt="Joe's Coffee Shop Logo" class="mr-3">
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="text-gray-700 hover:text-gray-900">Home</a></li>
+                    <li><a href="#about" class="text-gray-700 hover:text-gray-900">About</a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a></li>
+                </ul>
             </div>
-        </div>
+            <div x-data="{lang: 'en'}">
+                <button @click="lang = 'en'" class="px-2 py-1 text-gray-700">EN</button>
+                <button @click="lang = 'fr'" class="px-2 py-1 text-gray-700">FR</button>
+            </div>
+        </nav>
     </header>
-    
-    <section id="home" class="hero bg-cover" style="background-image: url('https://placehold.co/1200x600?text=Café+&+Bakery');">
-        <div class="container mx-auto text-center py-20">
-            <h1 class="text-4xl font-bold text-white">Welcome to Joe's Coffee Shop</h1>
-            <p class="text-xl text-gray-300 mt-4">Enjoy a premium coffee experience like no other.</p>
-            <a href="#about" class="mt-5 bg-blue-500 text-white py-3 px-6 rounded-full inline-block">Learn More</a>
+    <section class="hero bg-cover bg-center py-24" style="background-image: url('https://placehold.co/1200x600?text=Café+&+Bakery');">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl text-white font-bold mb-3">Discover Local Flavor</h1>
+            <p class="text-xl text-white mb-6">Enjoy expertly brewed coffee and fresh bakery delights.</p>
+            <a href="#about" class="bg-white text-gray-800 px-5 py-3 rounded hover:bg-gray-100">Learn More</a>
         </div>
     </section>
-    
-    <section id="about" class="about bg-white py-10">
-        <div class="container mx-auto px-5">
-            <h2 class="text-3xl font-bold text-center">About Us</h2>
-            <p class="mt-5 text-gray-700">
-                Welcome to Joe's Coffee Shop, your go-to neighborhood café & bakery nestled in the heart of your local community, where we pride ourselves on serving meticulously crafted, barista-quality coffee and a delightful array of freshly baked goods. At Joe's Coffee Shop, every cup of coffee is a masterpiece, brewed from locally sourced, premium beans that are roasted to perfection, ensuring each sip delivers a robust and flavorful experience.
-            </p>
-        </div>
+    <section id="about" class="container mx-auto my-12 p-6">
+        <h2 class="text-3xl font-bold text-center mb-4">About Us</h2>
+        <p>Welcome to Joe's Coffee Shop – your cozy neighborhood destination where aromatic coffee blends and freshly-baked delights meet heartwarming comfort. Located in the heart of the community, Joe’s offers a perfect retreat for local coffee aficionados and those seeking a scrumptious bite in a friendly, inviting atmosphere.</p>
+        <p>At Joe's, we pride ourselves on serving expertly brewed local coffee. Each cup is a testament to our commitment to quality and passion for rich flavors. From robust espressos to velvety lattes, every sip promises to invigorate and delight. Paired with our mouthwatering bakery items, from flaky croissants to decadent cakes, each treat is crafted daily in-house using only the freshest ingredients.</p>
+        <p>Whether you're starting your morning with us or popping in for an afternoon pick-me-up, Joe's Coffee Shop provides not just nourishment, but a warm community space. Enjoy our comfortable seating and cozy ambiance perfect for chatting, reading, or working. With free Wi-Fi and friendly service, it’s an ideal spot for students and professionals alike.</p>
+        <p>Don’t just take our word for it; come and experience the charm and quality of Joe’s Coffee Shop. We’re more than just a café – we’re a cornerstone of the community, dedicated to enriching our local culture one cup, and one smile, at a time. Visit us today and make Joe’s Coffee Shop a part of your daily ritual!</p>
     </section>
-    
-    <section id="contact" class="contact bg-gray-100 py-10">
-        <div class="container mx-auto px-5">
-            <h2 class="text-3xl font-bold text-center" x-text="lang === 'en' ? 'Contact Us' : 'Contactez-nous'"></h2>
-            <div class="mt-5">
-                <p class="text-gray-700">Location: 123 Main St, Your City</p>
-                <p class="text-gray-700">Hours: Mon-Sun, 8:00 AM to 8:00 PM</p>
+    <section id="contact" class="bg-gray-200 py-8">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4" x-text="lang === 'en' ? 'Contact' : 'Contactez-nous'"></h2>
+            <div class="flex flex-wrap justify-around items-center">
+                <div class="px-5 mb-4">
+                    <h3 class="font-semibold text-lg">Location</h3>
+                    <p>123 Coffee Drive<br>Flavor Town, CA 90401</p>
+                </div>
+                <div class="px-5 mb-4">
+                    <h3 class="font-semibold text-lg">Hours</h3>
+                    <p>Mon - Fri: 7am - 7pm<br>Sat - Sun: 8am - 8pm</p>
+                </div>
+                <div class="w-full md:w-1/3 px-5">
+                    <h3 class="font-semibold text-lg">Stay In Touch</h3>
+                    <form>
+                        <input type="text" placeholder="Your Name" class="px-3 py-2 border rounded mt-2 w-full">
+                        <input type="email" placeholder="Your Email" class="px-3 py-2 border rounded mt-2 w-full">
+                        <textarea placeholder="Your Message" class="px-3 py-2 border rounded mt-2 w-full"></textarea>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mt-3 w-full">Send</button>
+                    </form>
+                </div>
             </div>
-            <form class="mt-5">
-                <input type="text" placeholder="Your Name" class="input" required>
-                <input type="email" placeholder="Your Email" class="input" required>
-                <textarea placeholder="Your Message" class="textarea" required></textarea>
-                <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-full mt-3">Send</button>
-            </form>
         </div>
     </section>
-
-    <script src="script.js"></script>
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            © 2023 Joe's Coffee Shop. All Rights Reserved.
+        </div>
+    </footer>
 </body>
 </html>
