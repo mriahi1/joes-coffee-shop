@@ -7,29 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="nav">
-        <div class="logo">Joe's Coffee Shop</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+    <header>
+        <nav id="nav-links">
+            <div id="menu-toggle">☰</div>
+            <div id="language-switcher">EN | ES</div>
         </nav>
-        <div id="language-switcher" class="language-switcher">EN/FR</div>
-    </div>
-    <section class="hero" style="background-image: url('https://picsum.photos/1600/900?random=1');">
-        <h1>Welcome to Joe's Coffee Shop</h1>
-        <button id="cta-button" class="cta-button">Visit Us Today</button>
-    </section>
-    <div class="content-wrapper">
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Joe's Coffee Shop is your go-to place for fresh coffee and delicious treats in a cozy setting. We believe in quality, community, and the power of a great cup of coffee.</p>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Joe's Coffee Shop</h1>
+                <button id="cta-button">Visit Us</button>
+            </div>
         </section>
-        <section id="contact">
+    </header>
+    <footer>
+        <section class="contact">
             <h2>Contact Us</h2>
-            <p>Reach out to us at contact@joescoffeeshop.com or visit us at our location in downtown.</p>
+            <p>Email: info@joescoffee.com</p>
+            <p>Phone: 123-456-7890</p>
         </section>
-    </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
