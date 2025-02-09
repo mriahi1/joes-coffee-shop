@@ -7,26 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="navbar">
-        <div id="menu-toggle" class="burger-menu" onclick="toggleMenu()">
-            <span data-lang="en">Menu</span><span data-lang="fr">Menu</span>
+    <nav>
+        <div id="nav-links">
+            <a href="#" id="menu-toggle">Menu</a>
+            <a href="#" id="language-switcher">EN/FR</a>
         </div>
-        <div id="language-switcher" class="language-switcher" onclick="switchLanguage()">
-            <span data-lang="en">EN</span><span data-lang="fr">FR</span>
-        </div>
-    </header>
+    </nav>
     <section class="hero">
-        <img src="https://picsum.photos/1600/900" alt="Coffee Shop">
-        <button id="cta-button" class="cta-button" onclick="openModal()">
-            <span data-lang="en">Order Now</span><span data-lang="fr">Commander</span>
-        </button>
-    </section>
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p><span data-lang="en">Place your coffee order</span><span data-lang="fr">Passez votre commande de café</span></p>
+        <div style="background-image: url('https://picsum.photos/1600/900?random=1'); height: 100vh; background-size: cover;">
+            <button id="cta-button">Book a Table!</button>
         </div>
+    </section>
+    <div id="modal" style="display:none;">
+        <form action="#">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required>
+            <label for="time">Time</label>
+            <input type="time" id="time" name="time" required>
+            <button type="submit">Submit</button>
+            <button type="button" onclick="closeModal()">Close</button>
+        </form>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

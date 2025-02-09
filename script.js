@@ -1,41 +1,54 @@
-document.addEventListener('DOMContentLoaded', () => {
+function toggleNavMenu() {
+    document.querySelector('#nav-links').classList.toggle('is-active');
+}
 
-    const menuToggle = document.querySelector('#menu-toggle');
-    const ctaButton = document.querySelector('#cta-button');
-    const closeModalButtons = document.querySelectorAll('.close-modal');
-    const languageSwitcherButtons = document.querySelectorAll('.language-switcher button');
-
-    menuToggle.addEventListener('click', toggleNavMenu);
-    ctaButton.addEventListener('click', openModal);
-    closeModalButtons.forEach(button => button.addEventListener('click', closeModal));
-    languageSwitcherButtons.forEach(button => {
-        button.addEventListener('click', () => switchLanguage(button.dataset.language));
+function switchLanguage(lang) {
+    document.querySelectorAll('[data-lang]').forEach(element => {
+        let key = element.getAttribute('data-lang');
+        if (lang === 'FR') {
+            // French translations
+            let translations = {
+                'home': 'Accueil',
+                'menu': 'Menu',
+                'book': 'Réserver',
+                'welcome': 'Bienvenue au Joe\'s Coffee Shop',
+                'cta-text': 'Prêt pour le meilleur café de votre vie?',
+                'cta-button': 'Faire une réservation'
+            };
+            element.textContent = translations[key];
+        } else {
+            // English defaults
+            let translations = {
+                'home': 'Home',
+                'menu': 'Menu',
+                'book': 'Book',
+                'welcome': 'Welcome to Joe\'s Coffee Shop',
+                'cta-text': 'Ready for the best coffee of your life?',
+                'cta-button': 'Book a table'
+            };
+            element.textContent = translations[key];
+        }
     });
+}
 
-    function toggleNavMenu() {
-        const navLinks = document.querySelector('#nav-links');
-        navLinks.classList.toggle('active');
-    }
+function openModal() {
+    document.querySelector('#modal').style.display = 'block';
+}
 
-    function switchLanguage(lang) {
-        const textsToChange = document.querySelectorAll('[data-lang-en], [data-lang-fr]');
-        textsToChange.forEach(element => {
-            if(lang === 'en') {
-                element.textContent = element.dataset.langEn;
-            } else if(lang === 'fr') {
-                element.textContent = element.dataset.langFr;
-            }
-        });
-    }
+function closeModal() {
+    document.querySelector('#modal').style.display = 'none';
+}
 
-    function openModal() {
-        const modal = document.querySelector('#modal');
-        modal.style.display = 'block';
-    }
+document.querySelector('#menu-toggle').addEventListener('click', toggleNavMenu);
 
-    function closeModal() {
-        const modal = document.querySelector('#modal');
-        modal.style.display = 'none';
-    }
+document.querySelector('#cta-button').addEventListener('click', openModal);
 
+document.querySelectorAll('.close-modal').forEach(button => {
+    button.addEventListener('click', closeModal);
+});
+
+document.querySelectorAll('.language-switcher button').forEach(button => {
+    button.addEventListener('click', function() {
+        switchLanguage(this.dataset.lang);
+    });
 });
