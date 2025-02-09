@@ -1,53 +1,40 @@
 /* General Styles */
-:root {
-    --primary-color: #6d4c41; /* Deep coffee brown */
-    --secondary-color: #d7ccc8; /* Light brown */
-    --accent-color: #a1887f; /* Medium brown */
-    --text-color: #3e2723; /* Almost black */
-    --background-color: #efebe9; /* Creamy off-white */
-}
-
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: 'Open Sans', Arial, sans-serif;
-    color: var(--text-color);
-    background-color: var(--background-color);
+    background-color: #f4f4f4;
+    color: #333;
     line-height: 1.6;
+    font-size: 16px;
 }
 
 a {
-    color: var(--primary-color);
     text-decoration: none;
+    color: #333;
 }
 
-a:hover {
-    color: var(--accent-color);
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: var(--accent-color);
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 /* Header & Navigation */
 header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem 0;
+    background: #6F4E37;
+    color: #fff;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,104 +46,138 @@ nav {
 }
 
 nav a {
-    color: white;
-    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-/* Responsive navigation */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
+nav a:hover {
+    color: #ffeab0;
+}
+
+.language-switcher {
+    color: #ffff;
+    cursor: pointer;
 }
 
 /* Hero Section */
 .hero {
-    display: grid;
-    place-items: center;
-    padding: 2rem;
-    background-image: url('coffee-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
+    background: url('coffee-hero.jpg') no-repeat center center/cover;
+    color: #fff;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-content {
+    text-align: center;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 2.5em;
+    margin-bottom: 10px;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-top: 1rem;
+    font-size: 1.2em;
 }
 
-/* Sections styles */
-section {
-    padding: 2rem;
+/* Sections */
+.section {
+    padding: 40px 20px;
     display: grid;
-    grid-gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 30px;
 }
 
-.about,
-.services,
-.gallery,
-.testimonials,
-.contact {
-    background-color: white;
+@media (min-width: 768px) {
+    .section {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.about h2,
-.services h2,
-.gallery h2,
-.testimonials h2,
-.contact h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+.section img {
+    border-radius: 10px;
 }
 
-/* Gallery styling */
-.gallery img {
+.section h2 {
+    margin-bottom: 10px;
+}
+
+.section p {
+    text-align: justify;
+}
+
+/* Modal Form Styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-/* Testimonials */
-.testimonial {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
 }
 
-.testimonial img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    width: 80%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5em;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #333;
 }
 
 /* Footer */
 footer {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
+    background: #333;
+    color: #fff;
     text-align: center;
-    padding: 1rem;
-    font-size: 0.8rem;
+    padding: 10px;
 }
 
-/* Responsive Grid Layout */
-@media (min-width: 768px) {
-    .hero {
-        height: 500px;
-    }
-
-    .about,
-    .services,
-    .testimonials,
-    .contact {
-        grid-template-columns: repeat(2, 1fr);
-    }
+footer p {
+    margin: 10px 0;
 }
+
+/* CTA Button Animations */
+.btn {
+    display: inline-block;
+    background: #6F4E37;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #57352a;
+}
+
 ```
 
-This CSS targets a range of components for Joe's Coffee Shop web pages, ensuring a modern, responsive, and attractive design. This stylesheet employs a mobile-first approach for maximum compatibility and performance across devices. It uses CSS Grid and Flexbox for layout, enabling fluid and dynamic page structures, from sections like the header and hero area to the gallery and footer. Colors, typography, and hover effects reflect the theme of warmth and comfort.
+This contemporary style sheet implements a mobile-first, aesthetically pleasing design for Joe's Coffee Shop, featuring modern layout techniques like CSS Grid and Flexbox, smooth animations, a modal form for calls-to-action, and a clean footer and header navigation. Adjustments for larger screens are minimal but effective in enhancing the visual hierarchy and spatial arrangement.

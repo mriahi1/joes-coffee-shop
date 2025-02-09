@@ -3,82 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Enjoy the best coffee in Paris at Joe's Coffee Shop. From expertly brewed coffee to delightful brunch options, discover your next favorite spot.">
     <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Discover the best coffee and delightful brunch in Paris at Joe's Coffee Shop.">
-    <meta property="og:image" content="https://source.unsplash.com/1600x900/?coffee">
+    <meta property="og:description" content="Enjoy the finest coffee in town at Joe's Coffee Shop. Visit us or book a table online!">
+    <meta property="og:image" content="https://source.unsplash.com/1600x900/?coffee,shop">
     <meta property="og:type" content="website">
+    <meta name="description" content="Joe's Coffee Shop offers an exquisite range of coffee brews and snacks to enrich your day. Book a table with us or stop by to relax in a cozy setting.">
+    <meta name="keywords" content="Joe's Coffee Shop, coffee shop, best coffee, coffee booking, cafe">
     <title>Joe's Coffee Shop</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <nav class="navigation">
+            <div class="logo">Joe's Coffee Shop</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#menu">Menu</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="language-switcher">
+                <button>EN</button>
+                <button>FR</button>
+            </div>
         </nav>
-        <section class="hero">
-            <img src="https://source.unsplash.com/1600x900/?coffee" alt="Joe's Coffee">
+        <section class="hero" style="background-image:url('https://source.unsplash.com/1600x900/?coffee,shop');">
             <h1>Welcome to Joe's Coffee Shop</h1>
-            <p>Experience the finest coffee in Paris.</p>
-            <a href="#book-table" class="cta-button">Book a table online</a>
+            <p>Your perfect coffee break destination!</p>
+            <button id="bookTableBtn">Book a Table</button>
         </section>
     </header>
 
-    <main>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Established in 20XX, Joe's offers the best in coffee and local brunch specialties in a cozy atmosphere in the heart of Paris.</p>
-        </section>
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form action="" method="post">
+                <h2>Book a Table</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" name="guests" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
-        <section id="services">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Premium Coffee Brewing</li>
-                <li>Brunch Menu</li>
-                <li>Private Events</li>
-            </ul>
-        </section>
+    <script>
+        const modal = document.getElementById('bookingModal');
+        const btn = document.getElementById('bookTableBtn');
+        const span = document.getElementsByClassName('close')[0];
 
-        <section id="gallery">
-            <h2>Gallery</h2>
-            <div>
-                <img src="https://source.unsplash.com/400x300/?coffee,shop" alt="Coffee Shop 1">
-                <img src="https://source.unsplash.com/400x300/?coffee,shop" alt="Coffee Shop 2">
-                <img src="https://source.unsplash.com/400x300/?coffee,shop" alt="Coffee Shop 3">
-                <img src="https://source.unsplash.com/400x300/?coffee,shop" alt="Coffee Shop 4">
-            </div>
-        </section>
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
 
-        <section id="testimonials">
-            <h2>What Our Customers Say</h2>
-            <p>"Hands down, the best coffee spot in Paris. The brunch is just icing on the cake!" - Jane Doe</p>
-        </section>
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>To book a table or for any inquiries, please contact us:</p>
-            <p>Email: info@joescoffeeshop.com</p>
-            <p>Phone: +33 1 23 45 67 89</p>
-        </section>
-    </main>
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
-    <footer>
-        <p>&copy; 2023 Joe's Coffee Shop. All rights reserved.</p>
-    </footer>
 </body>
 </html>
 ```
 
-This HTML document meets all requirements stated:
-- SEO optimization is done through meta tags and OpenGraph data.
-- Styles are intended to be set in another file, `styles.css`, which is linked in the head.
-- Responsive design can be controlled by CSS, easily linked for style separation.
-- Image placeholders provided by Unsplash are used for the hero and gallery sections.
-- Navigation and site sections are clearly marked and contain placeholders for further detailed content.
+This HTML file includes everything required:
+- The `DOCTYPE` and `html` element define the document type and language.
+- `head` contains SEO optimized meta tags including OpenGraph tags.
+- `header` contains the navigation and hero section.
+- The modal form is created within a div and is hidden by default, controlled by JavaScript.
+- External links for images have been provided to avoid the need for local storage or rights management.
+Make sure to add corresponding CSS in `style.css` to handle the layout, responsiveness, and display settings of elements such as the modal.
