@@ -1,29 +1,36 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById('menuToggle');
-    const bookTableBtn = document.getElementById('bookTableBtn');
-    const closeModalButton = document.querySelector('.close-modal');
+document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const bookTableBtn = document.getElementById('book-table-btn');
+    const closeModalButtons = document.querySelectorAll('.close-modal');
     const languageButtons = document.querySelectorAll('.language-switcher button');
 
     menuToggle.addEventListener('click', toggleNavMenu);
     bookTableBtn.addEventListener('click', openModal);
-    closeModalButton.addEventListener('click', closeModal);
+
+    closeModalButtons.forEach(button => {
+        button.addEventListener('click', closeModal);
+    });
 
     languageButtons.forEach(button => {
         button.addEventListener('click', function() {
-            switchLanguage(this.dataset.language);
+            switchLanguage(this.getAttribute('data-lang'));
         });
     });
 });
 
 function toggleNavMenu() {
     const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
+    navLinks.style.display = navLinks.style.display === 'block' ? 'none' : 'block';
 }
 
 function switchLanguage(lang) {
-    const texts = document.querySelectorAll('[data-lang-key]');
-    texts.forEach(text => {
-        text.textContent = langData[lang][text.dataset.langKey] || text.textContent;
+    const textsToChange = document.querySelectorAll('[data-lang-str]');
+    textsToChange.forEach(element => {
+        if(lang == 'EN') {
+            element.textContent = element.getAttribute('data-lang-en');
+        } else if(lang == 'FR') {
+            element.textContent = element.getAttribute('data-lang-fr');
+        }
     });
 }
 
@@ -36,20 +43,3 @@ function closeModal() {
     const modal = document.getElementById('modal');
     modal.style.display = 'none';
 }
-
-const langData = {
-    "en": {
-        "home": "Home",
-        "menu": "Menu",
-        "locations": "Locations",
-        "about": "About",
-        "bookTable": "Book a table"
-    },
-    "fr": {
-        "home": "Accueil",
-        "menu": "Menu",
-        "locations": "Emplacements",
-        "about": "À propos",
-        "bookTable": "Réserver une table"
-    }
-};

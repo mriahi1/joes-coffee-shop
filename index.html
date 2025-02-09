@@ -3,59 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Joe's Coffee Shop - The perfect place to enjoy your coffee!">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Welcome to Joe's Coffee Shop - your go-to place for the finest coffee in town.">
     <meta property="og:title" content="Joe's Coffee Shop">
+    <meta property="og:description" content="Discover the finest coffee blends and enjoy our cozy atmosphere.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.joescoffeeshop.com">
-    <meta property="og:image" content="https://picsum.photos/1200/630">
-    <meta property="og:description" content="Enjoy artisan coffee at Joe's Coffee Shop in a cozy and friendly environment. Book your table now!">
+    <meta property="og:image" content="https://picsum.photos/1600/900">
+    <meta property="og:url" content="http://www.joescoffeeshop.com">
     <title>Joe's Coffee Shop</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
-    <header>
-        <nav id="menuToggle">
-            <div class="burger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="language-switcher">
-                <button aria-label="Switch language to English">EN</button>
-                <button aria-label="Switch language to French">FR</button>
-            </div>
-        </nav>
-        <div class="hero" style="background-image:url('https://picsum.photos/1600/900');">
-            <h1>Welcome to Joe's Coffee Shop</h1>
-            <button id="bookTableBtn">Book a Table</button>
+
+    <nav>
+        <button id="menu-toggle" aria-label="Open menu">Menu</button>
+        <div id="language-switcher" aria-label="Switch language">
+            <button aria-label="Switch to English">EN</button>
+            <button aria-label="Switch to French">FR</button>
         </div>
+    </nav>
+
+    <header style="background-image: url('https://picsum.photos/1600/900');">
+        <h1>Welcome to Joe's Coffee Shop</h1>
+        <button class="cta-button" id="open-booking-modal" aria-label="Book a table">Book a Table</button>
     </header>
-  
-    <div id="modal" aria-hidden="true">
-        <div class="modal-background" aria-hidden="true"></div>
-        <div class="modal-content">
-            <h2>Book your table</h2>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
 
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" required>
-
-                <label for="time">Time:</label>
-                <input type="time" id="time" name="time" required>
-                
-                <button type="submit">Submit</button>
-                <button type="button" onclick="closeModal()">Cancel</button>
-            </form>
-        </div>
+    <div id="booking-modal" aria-hidden="true">
+        <form id="booking-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+            <label for="people">Number of People:</label>
+            <input type="number" id="people" name="people" required>
+            <button type="submit">Submit</button>
+            <button type="button" id="close-booking-modal">Cancel</button>
+        </form>
     </div>
-    
-    <script src="script.js"></script>
+
 </body>
 </html>
