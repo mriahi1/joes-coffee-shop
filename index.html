@@ -3,67 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Joe's Coffee Shop - the best coffee, snacks and service in town. Visit us to enjoy a great cup of coffee!">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Joe's Coffee Shop offers the finest coffee in Paris with an exclusive blend. Perfect place for your next coffee break.">
     <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Discover the best coffee at Joe's Coffee Shop. Enjoy freshly brewed coffee and homemade snacks.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="http://www.joescoffeeshop.com">
-    <meta property="og:image" content="http://www.joescoffeeshop.com/assets/images/og-image.jpg">
+    <meta property="og:description" content="Experience the finest Parisian coffee at Joe's Coffee Shop.">
+    <meta property="og:image" content="http://example.com/assets/hero.jpg">
+    <meta property="og:url" content="http://example.com">
     <title>Joe's Coffee Shop</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        header, section { padding: 20px; }
+        .hero { background: url('assets/hero.jpg') no-repeat center center/cover; height: 50vh; display: flex; align-items: center; justify-content: center; }
+        .gallery img { width: 100%; height: auto; display: block; transition: transform 0.3s ease-in-out; }
+        .gallery img:hover { transform: scale(1.05); }
+        nav ul { list-style: none; display: flex; justify-content: flex-end; }
+        nav ul li { margin: 0 15px; }
+        footer { text-align: center; padding: 10px; }
+        @media (max-width: 768px) { nav ul { flex-direction: column; } }
+        .fade-in { opacity: 0; animation: fadeIn ease 2s; animation-fill-mode: forwards; }
+        @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <section id="home" class="hero">
-            <img src="assets/hero-background.jpg" alt="Coffee Shop Hero Image" class="hero-background">
-            <div class="hero-content">
-                <h1>Welcome to Joe's Coffee Shop</h1>
-                <p>Your favorite place to relax and enjoy a great cup of coffee.</p>
-                <a href="#contact" class="cta-button">Visit Us Today</a>
-            </div>
-        </section>
-    </header>
-    <main>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>We have been serving the community since 1999, offering the finest coffee sourced from around the world.</p>
-        </section>
-        <section id="services">
-            <h2>Our Services</h2>
-            <p>We offer a wide range of coffee-related services including custom blends, barista training and coffee equipment sales.</p>
-        </section>
-        <section id="gallery" aria-label="Image gallery">
-            <h2>Gallery</h2>
-            <div class="gallery-images">
-                <img src="assets/gallery1.jpg" alt="Barista making coffee">
-                <img src="assets/gallery2.jpg" alt="Freshly brewed coffee cup">
-                <img src="assets/gallery3.jpg" alt="Coffee beans">
-            </div>
-        </section>
-        <section id="testimonials">
-            <h2>Testimonials</h2>
-            <blockquote>
-                <p>"Absolutely the best coffee shop in town! Great atmosphere and friendly staff. Highly recommended!"</p>
-                <cite>– Jane Doe</cite>
-            </blockquote>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Email us at <a href="mailto:contact@joescoffeeshop.com">contact@joescoffeeshop.com</a> or call on <a href="tel:1234567890">123-456-7890</a>.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Joe's Coffee Shop. All rights reserved.</p>
-    </footer>
+
+<header class="hero fade-in">
+    <h1 id="header-title">Joe’s Coffee Shop</h1>
+</header>
+<nav>
+    <ul>
+        <li><button onclick="setLanguage('en')">English</button></li>
+        <li><button onclick="setLanguage('fr')">Français</button></li>
+    </ul>
+</nav>
+<section class="gallery fade-in">
+    <img src="assets/gallery1.jpg" alt="Gallery Image 1">
+    <img src="assets/gallery2.jpg" alt="Gallery Image 2">
+</section>
+<footer class="fade-in">
+    <p id="footer-text">© 2023 Joe's Coffee Shop, Paris</p>
+</footer>
+
+<script>
+    const texts = {
+        en: {
+            headerTitle: "Joe’s Coffee Shop",
+            footerText: "© 2023 Joe's Coffee Shop, Paris"
+        },
+        fr: {
+            headerTitle: "Café de Joe",
+            footerText: "© 2023 Café de Joe, Paris"
+        }
+    };
+
+    function setLanguage(lang) {
+        document.getElementById('header-title').textContent = texts[lang].headerTitle;
+        document.getElementById('footer-text').textContent = texts[lang].footerText;
+        document.documentElement.lang = lang;
+    }
+
+    // Initial language setup
+    setLanguage('en');
+</script>
 </body>
 </html>

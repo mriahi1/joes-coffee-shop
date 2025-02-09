@@ -1,62 +1,66 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Smooth Scrolling for site navigation
-    const navLinks = document.querySelectorAll('.navbar a');
-    for (let link of navLinks) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const href = this.getAttribute('href');
-            const offsetTop = document.querySelector(href).offsetTop;
-            scroll({
-                top: offsetTop,
-                behavior: "smooth"
-            });
+// script.js
+document.addEventListener('DOMContentLoaded', function () {
+    const langToggle = document.getElementById('lang-toggle');
+    const elementsToTranslate = document.querySelectorAll('[data-translate]');
+
+    const translations = {
+        en: {
+            'menu': 'Menu',
+            'services': 'Services',
+            'about': 'About us',
+            'contact': 'Contact'
+        },
+        fr: {
+            'menu': 'Menu',
+            'services': 'Services',
+            'about': 'À propos de nous',
+            'contact': 'Contact'
+        }
+    };
+
+    function switchLanguage(lang) {
+        elementsToTranslate.forEach(elem => {
+            const key = elem.getAttribute('data-translate');
+            elem.textContent = translations[lang][key];
         });
     }
 
-    // Mobile navigation toggle
-    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-    const navbarMenu = document.querySelector('.navbar-menu');
-
-    mobileNavToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navbarMenu.classList.toggle('active');
+    langToggle.addEventListener('change', function() {
+        const selectedLanguage = this.value;
+        switchLanguage(selectedLanguage);
     });
 
-    // Basic form validation for the contact form
-    const contactForm = document.querySelector('#contactForm');
-    contactForm.addEventListener('submit', function(event) {
-        let isValid = true;
+    // Smooth scrolling
+    const links = document.querySelectorAll('a[href^="#"]');
+    for (const link of links) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            target.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 
-        const name = document.querySelector('#name');
-        const email = document.querySelector('#email');
-        const message = document.querySelector('#message');
+    // Fade-in animations
+    const faders = document.querySelectorAll('.fade-in');
 
-        // Clear errors
-        document.querySelectorAll('.error').forEach(el => el.textContent = '');
+    const appearOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px"
+    };
 
-        // Name validation
-        if (!name.value.trim()) {
-            isValid = false;
-            name.nextElementSibling.textContent = 'Name is required.';
-        }
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('appear');
+                appearOnScroll.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
 
-        // Email validation
-        if (!email.value.trim()) {
-            isValid = false;
-            email.nextElementSibling.textContent = 'Email is required.';
-        } else if (!/^\S+@\S+\.\S+$/.test(email.value)) {
-            isValid = false;
-            email.nextElementSibling.textContent = 'Please enter a valid email address.';
-        }
-
-        // Message validation
-        if (!message.value.trim()) {
-            isValid = false;
-            message.nextElementSibling.textContent = 'Message is required.';
-        }
-
-        if (!isValid) {
-            event.preventDefault(); // Prevent form submission
-        }
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
     });
 });
