@@ -1,106 +1,89 @@
-/* Reset margins and paddings to ensure consistency */
+/* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+  font-family: Arial, sans-serif;
 }
 
 /* Navigation */
-.nav-links {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    padding: 10px 20px;
-    background: #333;
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #333;
+  color: white;
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
+.nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
 }
 
-.nav-links a:hover {
-    background-color: #555;
+.nav a:hover {
+  background-color: #555;
 }
 
 /* Hero Section */
 .hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    background-image: url('/path/to/hero-image.jpg');
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    color: white;
+  background-image: url('coffee-shop-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* CTA Button */
+/* Call To Action Button */
 .cta-btn {
-    display: block;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 12px 24px;
+  background-color: #8d6234;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
 .cta-btn:hover {
-    background-color: #0056b3;
+  background-color: #a3754a;
 }
 
-/* Modal */
-#modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 400px;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    z-index: 1000;
+/* Language Switcher */
+.language-switcher {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: rgba(51, 51, 51, 0.8);
+  padding: 4px 8px;
+  border-radius: 8px;
 }
 
-#modal.active {
-    display: block;
+.language-switcher select {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 4px;
 }
 
-/* Menu Toggle Button */
-#menuToggle {
-    display: none;
+/* Content Wrapper */
+.content-wrapper {
+  padding: 24px;
+  text-align: center;
 }
 
-@media (max-width: 600px) {
-    #menuToggle {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        cursor: pointer;
-        z-index: 2000;
-    }
-}
+@media (max-width: 768px) {
+  .hero {
+    height: 300px;
+  }
 
-.lang-btn {
-    padding: 5px 10px;
-    border: 1px solid #333;
-    background-color: transparent;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.lang-btn:hover {
-    background-color: #333;
-    color: white;
+  .content-wrapper {
+    padding: 16px;
+  }
 }

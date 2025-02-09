@@ -1,54 +1,43 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const languageButtons = document.querySelectorAll(".language-switcher button");
+
+    menuToggle.addEventListener("click", toggleNavMenu);
+
+    languageButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            switchLanguage(button.getAttribute("data-lang"));
+        });
+    });
+});
+
 function toggleNavMenu() {
-    document.querySelector('#nav-links').classList.toggle('is-active');
+    const navLinks = document.getElementById("nav-links");
+    navLinks.classList.toggle("visible");
 }
 
 function switchLanguage(lang) {
-    document.querySelectorAll('[data-lang]').forEach(element => {
-        let key = element.getAttribute('data-lang');
-        if (lang === 'FR') {
-            // French translations
-            let translations = {
-                'home': 'Accueil',
-                'menu': 'Menu',
-                'book': 'Réserver',
-                'welcome': 'Bienvenue au Joe\'s Coffee Shop',
-                'cta-text': 'Prêt pour le meilleur café de votre vie?',
-                'cta-button': 'Faire une réservation'
-            };
-            element.textContent = translations[key];
-        } else {
-            // English defaults
-            let translations = {
-                'home': 'Home',
-                'menu': 'Menu',
-                'book': 'Book',
-                'welcome': 'Welcome to Joe\'s Coffee Shop',
-                'cta-text': 'Ready for the best coffee of your life?',
-                'cta-button': 'Book a table'
-            };
-            element.textContent = translations[key];
-        }
+    const textElements = document.querySelectorAll("[data-lang-text]");
+
+    textElements.forEach(element => {
+        const textKey = element.getAttribute("data-lang-text");
+        element.innerText = translations[lang][textKey];
     });
 }
 
-function openModal() {
-    document.querySelector('#modal').style.display = 'block';
-}
-
-function closeModal() {
-    document.querySelector('#modal').style.display = 'none';
-}
-
-document.querySelector('#menu-toggle').addEventListener('click', toggleNavMenu);
-
-document.querySelector('#cta-button').addEventListener('click', openModal);
-
-document.querySelectorAll('.close-modal').forEach(button => {
-    button.addEventListener('click', closeModal);
-});
-
-document.querySelectorAll('.language-switcher button').forEach(button => {
-    button.addEventListener('click', function() {
-        switchLanguage(this.dataset.lang);
-    });
-});
+const translations = {
+    "EN": {
+        "home": "Home",
+        "menu": "Menu",
+        "about": "About",
+        "contact": "Contact",
+        "welcome": "Welcome to Joe's Coffee Shop!"
+    },
+    "FR": {
+        "home": "Accueil",
+        "menu": "Menu",
+        "about": "À propos",
+        "contact": "Contact",
+        "welcome": "Bienvenue chez Joe's Coffee Shop!"
+    }
+};
