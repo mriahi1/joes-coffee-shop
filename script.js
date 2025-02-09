@@ -1,32 +1,34 @@
 document.addEventListener('alpine:init', () => {
     Alpine.data('languageSwitcher', () => ({
         lang: 'en',
+        toggleNavMenu() {
+            this.$dispatch('toggle-nav-menu');
+        },
         switchLanguage() {
             this.lang = this.lang === 'en' ? 'fr' : 'en';
-            document.documentElement.lang = this.lang;
-            this.updateLanguageText();
+            this.updatePageLanguage();
         },
-        updateLanguageText() {
+        updatePageLanguage() {
+            document.documentElement.lang = this.lang;
             const texts = {
                 en: {
-                    greeting: "Hello",
-                    description: "Welcome to our website",
+                    welcome: "Welcome",
+                    about: "About Us",
+                    contact: "Contact"
                 },
                 fr: {
-                    greeting: "Bonjour",
-                    description: "Bienvenue sur notre site web",
+                    welcome: "Bienvenue",
+                    about: "À propos",
+                    contact: "Contactez"
                 }
             };
-            
-            document.querySelector('#greeting').textContent = texts[this.lang].greeting;
-            document.querySelector('#description').textContent = texts[this.lang].description;
-        }
-    }));
 
-    Alpine.data('navMenu', () => ({
-        isOpen: false,
-        toggleNavMenu() {
-            this.isOpen = !this.isOpen;
+            document.querySelector('#nav-home').textContent = texts[this.lang].welcome;
+            document.querySelector('#nav-about').textContent = texts[this.lang].about;
+            document.querySelector('#nav-contact').textContent = texts[this.lang].contact;
+        },
+        init() {
+            this.updatePageLanguage();
         }
     }));
 });

@@ -2,72 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    font-family: 'Open Sans', sans-serif;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-  }
-}
-
 @layer components {
-  .hero-bg {
-    @apply bg-cover bg-center;
-  }
-
-  .nav-wrapper {
-    @apply flex flex-wrap items-center justify-between py-4 lg:py-6 bg-white;
-  }
-
-  .nav-links {
-    @apply hidden lg:flex gap-4 items-center;
-  }
-
-  .nav-link {
-    @apply text-gray-700 hover:text-blue-700 px-3 py-2 rounded-md text-base font-medium transition-colors;
-  }
-
-  .nav-mobile {
-    @apply lg:hidden;
-  }
-
-  .menu-icon {
-    @apply block h-6 w-6;
-  }
-
   .hero {
-    @apply relative text-white text-center py-20 md:py-36;
+    @apply bg-cover bg-center h-screen w-full;
   }
 
-  .hero-title {
-    @apply text-3xl md:text-5xl font-bold mb-4;
+  .nav {
+    @apply flex justify-between items-center p-5 bg-white shadow-md fixed top-0 w-full z-10;
   }
 
-  .hero-subtitle {
-    @apply text-xl md:text-3xl mb-5;
+  .nav-logo {
+    @apply text-lg font-semibold;
+  }
+
+  .nav-items {
+    @apply hidden md:flex space-x-6;
+  }
+
+  .nav-item-link {
+    @apply no-underline text-gray-600 hover:text-blue-500;
+  }
+
+  .mobile-nav {
+    @apply md:hidden;
+  }
+
+  .hero-content {
+    @apply text-center text-white p-8 md:p-24;
+  }
+
+  .hero-heading {
+    @apply font-bold text-3xl md:text-5xl mb-6;
+  }
+
+  .hero-subheading {
+    @apply font-semibold text-xl md:text-2xl mb-8;
   }
 
   .cta-button {
-    @apply bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 border border-transparent rounded-md transition;
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300;
   }
 
-  .content-section {
-    @apply py-12 md:py-20;
+  .section {
+    @apply mt-12 md:mt-24 px-5 md:px-24 py-10;
   }
 
-  .section-heading {
-    @apply text-2xl font-bold text-gray-800 mb-4;
-  }
-
-  .section-text {
-    @apply text-base text-gray-500 leading-relaxed;
-  }
-}
-
-@layer utilities {
-  .hero-bg {
-    background-image: url('/path/to/your/image.jpg');
+  .footer {
+    @apply bg-gray-800 text-white p-4 text-center;
   }
 }
