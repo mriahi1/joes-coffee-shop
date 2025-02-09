@@ -2,52 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    font-family: 'Inter', sans-serif;
-  }
-}
-
 @layer components {
   .navbar {
-    @apply bg-white p-4 flex justify-between items-center;
+    @apply bg-white;
+  }
+  
+  .nav-link {
+    @apply text-blue-500 hover:text-blue-700 py-2 px-4;
+  }
+  
+  .burger-menu {
+    @apply sm:hidden;
   }
 
-  .nav-items {
-    @apply hidden md:flex md:space-x-6;
+  .nav-full {
+    @apply hidden sm:flex sm:items-center sm:justify-end;
   }
 
   .hero {
-    @apply bg-cover bg-center h-[60vh] flex items-center justify-center;
+    @apply relative bg-cover bg-center h-screen flex items-center justify-center;
   }
 
-  .hero-title {
-    @apply text-white text-4xl md:text-6xl;
+  .hero-heading {
+    @apply text-3xl md:text-5xl font-bold text-white text-center px-6;
   }
 
-  .cta-btn {
-    @apply mt-4 px-6 py-2 bg-blue-500 text-white rounded-md shadow hover:bg-blue-600;
+  .hero-subheading {
+    @apply text-xl text-white mt-4 px-6 text-center;
   }
 
-  .features {
-    @apply grid grid-cols-1 md:grid-cols-3 gap-6 p-6;
+  .cta-button {
+    @apply mt-8 bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600 transition duration-300;
   }
 
-  .feature-block {
-    @apply p-4 bg-white rounded-lg shadow-lg text-center;
+  .content-section {
+    @apply py-12 px-4 sm:px-6 md:px-8;
   }
 
-  .feature-title {
-    @apply text-xl font-semibold;
+  .section-heading {
+    @apply text-2xl font-semibold mt-6 mb-4;
   }
 
-  .feature-description {
-    @apply mt-2;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-items {
-    @apply flex flex-col;
+  .footer {
+    @apply bg-gray-800 text-white text-center py-4;
   }
 }
