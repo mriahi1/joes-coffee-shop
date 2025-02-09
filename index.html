@@ -3,48 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Enjoy the finest coffee in town at Joe's Coffee Shop.">
+    <meta name="description" content="Joe's Coffee Shop - The perfect place to enjoy your coffee!">
     <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Discover Joe's Coffee Shop and enjoy our freshly brewed coffee made with love.">
-    <meta property="og:image" content="https://picsum.photos/1600/900">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.joescoffeeshop.com">
+    <meta property="og:image" content="https://picsum.photos/1200/630">
+    <meta property="og:description" content="Enjoy artisan coffee at Joe's Coffee Shop in a cozy and friendly environment. Book your table now!">
     <title>Joe's Coffee Shop</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <!-- Navigation Bar -->
-        <nav>
-            <div id="menuToggle">
-                <!-- Burger menu for mobile -->
+        <nav id="menuToggle">
+            <div class="burger-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#coffee">Our Coffee</a></li>
-                <li><a href="#visit">Visit Us</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#menu">Menu</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <!-- Language switcher -->
             <div class="language-switcher">
-                <button aria-label="Switch to English" onclick="switchLanguage('en')">EN</button>
-                <button aria-label="Switch to French" onclick="switchLanguage('fr')">FR</button>
+                <button aria-label="Switch language to English">EN</button>
+                <button aria-label="Switch language to French">FR</button>
             </div>
         </nav>
-        <!-- Hero Section -->
-        <section>
-            <div style="background-image: url('https://picsum.photos/1600/900');" aria-label="Coffee shop ambiance" role="img"></div>
+        <div class="hero" style="background-image:url('https://picsum.photos/1600/900');">
             <h1>Welcome to Joe's Coffee Shop</h1>
             <button id="bookTableBtn">Book a Table</button>
-        </section>
+        </div>
     </header>
-
-    <!-- Modal Booking Form -->
-    <div id="modal" class="modal" aria-hidden="true">
+  
+    <div id="modal" aria-hidden="true">
+        <div class="modal-background" aria-hidden="true"></div>
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Book your table</h2>
             <form>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -54,17 +49,13 @@
 
                 <label for="time">Time:</label>
                 <input type="time" id="time" name="time" required>
-
-                <input type="submit" value="Book" onclick="bookTable()">
+                
+                <button type="submit">Submit</button>
+                <button type="button" onclick="closeModal()">Cancel</button>
             </form>
         </div>
     </div>
-
-    <script>
-        document.getElementById('bookTableBtn').addEventListener('click', function() {
-            showModal();
-        });
-    </script>
-
+    
+    <script src="script.js"></script>
 </body>
 </html>
