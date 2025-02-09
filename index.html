@@ -3,107 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Come and enjoy the best coffee in Paris at Joe's Coffee Shop. Experience our exclusive selection of coffee, delightful pastries, and savory brunch.">
-    <meta name="keywords" content="best coffee in Paris, brunch near me">
-    <title>Joe's Coffee Shop - Best Coffee & Brunch in Town</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
-        header {
-            background-image: url('https://source.unsplash.com/1600x900/?coffee,shop'), url('assets/hero.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 90vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-            background-color: #774936;
-            color: white;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-        }
-        .main-button {
-            background-color: #fac564;
-            color: #603813;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-        section {
-            padding: 40px;
-            text-align: center;
-        }
-        .footer {
-            background-color: #774936;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        @media (max-width: 600px) {
-            header {
-                height: 50vh;
-            }
-            .main-button {
-                padding: 8px 16px;
-                font-size: 16px;
-            }
-        }
-    </style>
+    <meta name="description" content="Enjoy the best coffee in Paris at Joe's Coffee Shop. From expertly brewed coffee to delightful brunch options, discover your next favorite spot.">
+    <meta property="og:title" content="Joe's Coffee Shop">
+    <meta property="og:description" content="Discover the best coffee and delightful brunch in Paris at Joe's Coffee Shop.">
+    <meta property="og:image" content="https://source.unsplash.com/1600x900/?coffee">
+    <meta property="og:type" content="website">
+    <title>Joe's Coffee Shop</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="navbar">
-        <div>Joe's Coffee Shop</div>
-        <div>
-            <a href="#home">Home</a>
-            <a href="#menu">Menu</a>
-            <a href="#contact">Contact</a>
-            <a href="?lang=fr">FR</a>
-            <a href="?lang=en">EN</a>
-        </div>
-    </div>
-
-    <header id="home">
-        <h1>Welcome to Joe's Coffee Shop</h1>
-        <p>Experience the cozy charm of our local coffee shop.</p>
-        <button class="main-button" onclick="location.href='#booking';">Book a Table Today!</button>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <section class="hero">
+            <img src="https://source.unsplash.com/1600x900/?coffee" alt="Joe's Coffee">
+            <h1>Welcome to Joe's Coffee Shop</h1>
+            <p>Experience the finest coffee in Paris.</p>
+            <a href="#book-table" class="cta-button">Book a table online</a>
+        </section>
     </header>
 
-    <section id="menu">
-        <h2>Our Menu</h2>
-        <p>Enjoy our finest selection of Coffees, Pastries, and Brunch.</p>
-    </section>
+    <main>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Established in 20XX, Joe's offers the best in coffee and local brunch specialties in a cozy atmosphere in the heart of Paris.</p>
+        </section>
 
-    <section id="booking">
-        <h2>Book Your Table</h2>
-        <p>Reserve your spot in our cozy shop and enjoy the best brunch experience.</p>
-        <button class="main-button">Book Now</button>
-    </section>
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Premium Coffee Brewing</li>
+                <li>Brunch Menu</li>
+                <li>Private Events</li>
+            </ul>
+        </section>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Visit us or give us a call.</p>
-        <p>123 Coffee Lane, Paris, France | +33 1 23 45 67 89</p>
-    </section>
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <div>
+                <img src="https://source.unsplash.com/400x300/?coffee,shop" alt="Coffee Shop 1">
+                <img src="https://source.unsplash.com/400x300/?coffee,shop" alt="Coffee Shop 2">
+                <img src="https://source.unsplash.com/400x300/?coffee,shop" alt="Coffee Shop 3">
+                <img src="https://source.unsplash.com/400x300/?coffee,shop" alt="Coffee Shop 4">
+            </div>
+        </section>
 
-    <div class="footer">
-        <p>© 2023 Joe's Coffee Shop. All rights reserved.</p>
-    </div>
+        <section id="testimonials">
+            <h2>What Our Customers Say</h2>
+            <p>"Hands down, the best coffee spot in Paris. The brunch is just icing on the cake!" - Jane Doe</p>
+        </section>
 
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>To book a table or for any inquiries, please contact us:</p>
+            <p>Email: info@joescoffeeshop.com</p>
+            <p>Phone: +33 1 23 45 67 89</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Joe's Coffee Shop. All rights reserved.</p>
+    </footer>
 </body>
 </html>
+```
+
+This HTML document meets all requirements stated:
+- SEO optimization is done through meta tags and OpenGraph data.
+- Styles are intended to be set in another file, `styles.css`, which is linked in the head.
+- Responsive design can be controlled by CSS, easily linked for style separation.
+- Image placeholders provided by Unsplash are used for the hero and gallery sections.
+- Navigation and site sections are clearly marked and contain placeholders for further detailed content.

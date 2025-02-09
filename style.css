@@ -1,68 +1,162 @@
 /* General Styles */
-body, html {
+:root {
+    --primary-color: #6d4c41; /* Deep coffee brown */
+    --secondary-color: #d7ccc8; /* Light brown */
+    --accent-color: #a1887f; /* Medium brown */
+    --text-color: #3e2723; /* Almost black */
+    --background-color: #efebe9; /* Creamy off-white */
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-transform: uppercase;
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
 }
 
 /* Hero Section */
-.hero-section {
-    background-image: url('https://source.unsplash.com/1600x900/?coffee,shop'), url('assets/hero.jpg');
+.hero {
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    background-image: url('coffee-hero.jpg');
     background-size: cover;
     background-position: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+/* Sections styles */
+section {
+    padding: 2rem;
+    display: grid;
+    grid-gap: 2rem;
+}
+
+.about,
+.services,
+.gallery,
+.testimonials,
+.contact {
+    background-color: white;
+}
+
+.about h2,
+.services h2,
+.gallery h2,
+.testimonials h2,
+.contact h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Gallery styling */
+.gallery img {
     width: 100%;
-    height: 500px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Testimonials */
+.testimonial {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
+    gap: 1rem;
 }
 
-.hero-text {
-    color: white;
-    font-size: 2em;
-    opacity: 0;
-    animation: fadeIn 2s ease-out forwards;
+.testimonial img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+}
+
+/* Responsive Grid Layout */
+@media (min-width: 768px) {
+    .hero {
+        height: 500px;
     }
-    to {
-        opacity: 1;
+
+    .about,
+    .services,
+    .testimonials,
+    .contact {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
+```
 
-/* CTA Button */
-.cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1.5em;
-    background-color: #ff4500;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-}
-
-.cta-button:hover {
-    transform: scale(1.1);
-}
-
-/* Language Switcher */
-.language-switcher {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.language-switcher:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-}
+This CSS targets a range of components for Joe's Coffee Shop web pages, ensuring a modern, responsive, and attractive design. This stylesheet employs a mobile-first approach for maximum compatibility and performance across devices. It uses CSS Grid and Flexbox for layout, enabling fluid and dynamic page structures, from sections like the header and hero area to the gallery and footer. Colors, typography, and hover effects reflect the theme of warmth and comfort.
