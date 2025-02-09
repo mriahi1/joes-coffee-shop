@@ -3,85 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joe's Coffee Shop</title>
-    <meta name="description" content="Enjoy the finest coffee in town at Joe's Coffee Shop.">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Enjoy the finest coffee from around the world at Joe's Coffee Shop.">
+    <meta name="keywords" content="Joe's Coffee Shop, coffee, beverages, snacks, barista">
     <meta property="og:title" content="Joe's Coffee Shop">
+    <meta property="og:description" content="Discover our world-class coffee and cozy atmosphere.">
+    <meta property="og:image" content="https://source.unsplash.com/1600x900/?coffee">
+    <meta property="og:url" content="https://joescoffeeshop.com">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://www.joescoffeeshop.com">
-    <meta property="og:image" content="https://source.unsplash.com/1600x900/?Café,&,Bakery,business">
-    <meta property="og:description" content="Enjoy the finest coffee in town at Joe's Coffee Shop.">
+    <title>Joe's Coffee Shop</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="burger-menu" aria-label="Menu">
-                <span class="burger-bar"></span>
-                <span class="burger-bar"></span>
-                <span class="burger-bar"></span>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
             </div>
-            <div class="nav-items">
-                <a href="#about">About</a>
-                <a href="#menu">Menu</a>
-                <a href="#contact">Contact</a>
-                <div class="language-switcher">
-                    <a href="?lang=en" aria-label="Switch to English">EN</a>
-                    <a href="?lang=fr" aria-label="Switch to French">FR</a>
-                </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button aria-label="Switch to French" onclick="switchLang('fr')">FR</button>
+                <button aria-label="Switch to English" onclick="switchLang('en')">EN</button>
             </div>
         </nav>
-        <section class="hero">
-            <img src="https://source.unsplash.com/1600x900/?Café,&,Bakery,business" alt="Joe's Coffee Shop">
+        <div class="hero" style="background-image: url('https://source.unsplash.com/1600x900/?coffee');">
             <h1>Welcome to Joe's Coffee Shop</h1>
-            <button class="cta-button" aria-controls="bookingModal">Book a Table</button>
-        </section>
+            <button id="bookTableBtn">Book a Table</button>
+        </div>
     </header>
 
-    <div id="bookingModal" class="modal" aria-hidden="true">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <form id="bookingForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+    <main>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Experience the best coffee and pastries in a warm, inviting atmosphere.</p>
+        </section>
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <p>Check out our wide variety of coffee blends, teas, and snacks.</p>
+        </section>
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <img src="https://source.unsplash.com/400x300/?cafe" alt="Cafe view">
+            <img src="https://source.unsplash.com/400x300/?espresso" alt="Espresso shot">
+            <img src="https://source.unsplash.com/400x300/?coffee-shop" alt="Coffee shop atmosphere">
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Reach out to us for events or reservation queries.</p>
+        </section>
+    </main>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" required>
-
-                <label for="time">Time:</label>
-                <input type="time" id="time" name="time" required>
-
-                <label for="guests">Number of Guests:</label>
-                <input type="number" id="guests" name="guests" required min="1" max="10">
-
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+    <div id="modal" aria-hidden="true" class="hidden">
+        <form id="bookingForm" novalidate>
+            <h3>Book a Table</h3>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required minlength="2">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests" required min="1" max="10">
+            <button type="submit">Submit</button>
+            <button type="button" onclick="closeModal()">Close</button>
+        </form>
     </div>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email us at <a href="mailto:info@joescoffeeshop.com">info@joescoffeeshop.com</a></p>
-        <p>Call us: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-    </section>
+    <footer>
+        <p>&copy; 2023 Joe's Coffee Shop.</p>
+    </footer>
 
-    <script>
-        document.querySelector('.cta-button').addEventListener('click', function() {
-            document.getElementById('bookingModal').style.display = 'block';
-        });
-
-        document.querySelector('.close-button').addEventListener('click', function() {
-            document.getElementById('bookingModal').style.display = 'none';
-        });
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('bookingModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
