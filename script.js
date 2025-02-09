@@ -1,48 +1,32 @@
-document.addEventListener("alpine:init", () => {
-    Alpine.store("site", {
-        lang: "en",
-        mobileMenuOpen: false,
-        toggleNavMenu() {
-            this.mobileMenuOpen = !this.mobileMenuOpen;
+document.addEventListener('alpine:init', () => {
+    Alpine.data('languageSwitcher', () => ({
+        lang: 'en',
+        switchLanguage() {
+            this.lang = this.lang === 'en' ? 'fr' : 'en';
+            document.documentElement.lang = this.lang;
+            this.updateLanguageText();
         },
-        switchLanguage(language) {
-            this.lang = language;
-        },
-        updateText() {
+        updateLanguageText() {
             const texts = {
                 en: {
-                    home: "Home",
-                    about: "About",
-                    contact: "Contact"
+                    greeting: "Hello",
+                    description: "Welcome to our website",
                 },
                 fr: {
-                    home: "Accueil",
-                    about: "À propos",
-                    contact: "Contact"
+                    greeting: "Bonjour",
+                    description: "Bienvenue sur notre site web",
                 }
             };
-            let languageTexts = texts[this.lang];
-            document.getElementById('nav-home').textContent = languageTexts.home;
-            document.getElementById('nav-about').textContent = languageTexts.about;
-            document.getElementById('nav-contact').textContent = languageTexts.contact;
-        }
-    });
-
-    Alpine.data("languageSwitcher", () => ({
-        init() {
-            this.$watch('store.site.lang', () => {
-                this.$store.site.updateText();
-                document.documentElement.lang = this.$store.site.lang;
-            });
-        },
-        toggleLanguage() {
-            this.$store.site.switchLanguage(this.$store.site.lang === 'en' ? 'fr' : 'en');
+            
+            document.querySelector('#greeting').textContent = texts[this.lang].greeting;
+            document.querySelector('#description').textContent = texts[this.lang].description;
         }
     }));
 
-    Alpine.data("menu", () => ({
+    Alpine.data('navMenu', () => ({
+        isOpen: false,
         toggleNavMenu() {
-            this.$store.site.toggleNavMenu();
+            this.isOpen = !this.isOpen;
         }
     }));
 });
