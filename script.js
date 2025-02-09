@@ -1,86 +1,63 @@
-// script.js content
-
-document.addEventListener("DOMContentLoaded", () => {
-    const englishText = {
-        title: "Joe's Coffee Shop",
-        welcomeMsg: "Welcome to the best coffee shop!",
-        about: "About Us",
-        menu: "Menu",
-        contact: "Contact Us"
+document.addEventListener('DOMContentLoaded', function() {
+    const langToggleBtn = document.querySelector("#language-toggle");
+    const textsToChange = document.querySelectorAll("[data-section]");
+    const langMap = {
+        en: {
+            'welcome': "Welcome to Joe's Coffee Shop",
+            'about': "About Us",
+            'menu': "Our Menu",
+            'contact': "Contact Us"
+        },
+        fr: {
+            'welcome': "Bienvenue chez Joe's Coffee Shop",
+            'about': "À Propos",
+            'menu': "Notre Menu",
+            'contact': "Nous Contacter"
+        }
     };
 
-    const frenchText = {
-        title: "Le Café de Joe",
-        welcomeMsg: "Bienvenue au meilleur café!",
-        about: "À Propos",
-        menu: "Menu",
-        contact: "Contactez-nous"
-    };
-
-    const languageSwitcher = document.getElementById('languageSwitcher');
-    const title = document.getElementById('title');
-    const welcomeMsg = document.getElementById('welcomeMsg');
-    const about = document.getElementById('navAbout');
-    const menu = document.getElementById('navMenu');
-    const contact = document.getElementById('navContact');
-
-    languageSwitcher.addEventListener('change', () => {
-        const isFrench = languageSwitcher.checked;
-
-        title.textContent = isFrench ? frenchText.title : englishText.title;
-        welcomeMsg.textContent = isFrench ? frenchText.welcomeMsg : englishText.welcomeMsg;
-        about.textContent = isFrench ? frenchText.about : englishText.about;
-        menu.textContent = isFrench ? frenchText.menu : englishText.menu;
-        contact.textContent = isFrench ? frenchText.contact : englishText.contact;
+    let currentLang = 'en';
+    langToggleBtn.addEventListener('click', function() {
+        currentLang = currentLang === 'en' ? 'fr' : 'en';
+        textsToChange.forEach(function(e) {
+            const section = e.dataset.section;
+            e.textContent = langMap[currentLang][section];
+        });
     });
 
-    // Smooth scrolling
-    const links = document.querySelectorAll("a[href^='#']");
-    links.forEach(link => {
-        link.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            let targetElement = document.querySelector(this.getAttribute("href"));
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
 
-    // Fade-in on scroll
-    const faders = document.querySelectorAll('.fade-in');
-
-    const appearOptions = {
-        threshold: 0.5,
-        rootMargin: "0px 0px -100px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('appear');
-            appearOnScroll.unobserve(entry.target);
-        });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
+    const ctaButton = document.querySelector('.cta-button');
+    const heroSection = document.querySelector('.hero');
+    window.addEventListener('scroll', function() {
+        const scrollHeight = window.pageYOffset + heroSection.getBoundingClientRect().top + heroSection.offsetHeight;
+        if (window.pageYOffset > scrollHeight) {
+            ctaButton.style.backgroundColor = '#f57c00'; // Example color: bright orange for visibility
+        } else {
+            ctaButton.style.backgroundColor = ''; // Reset color on scroll back
+        }
     });
 
-    // Highlight CTA button on scroll
-    const ctaButton = document.getElementById('ctaButton');
-    const options = {
-        root: null,
-        threshold: 0,
-        rootMargin: "-100px"
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                ctaButton.classList.add('highlight');
-            } else {
-                ctaButton.classList.remove('highlight');
-            }
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: "200px"
         });
-    }, options);
 
-    observer.observe(document.querySelector('#main'));
+        observer.observe(img);
+    });
 });
