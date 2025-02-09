@@ -4,30 +4,68 @@
 
 @layer base {
   body {
-    @apply bg-gray-100;
+    @apply bg-gray-100 text-gray-900;
   }
+
+  h1, h2, h3, h4 {
+    @apply font-semibold;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  a {
+    @apply text-blue-500 hover:text-blue-700;
+  }
+}
+
+@layer components {
   .navbar {
-    @apply bg-white py-4 px-6 fixed w-full z-10;
+    @apply bg-white px-4 py-2 shadow-md;
   }
-  .logo {
-    @apply text-xl font-bold text-gray-800;
-  }
+
   .nav-links {
-    @apply hidden md:flex gap-4 ml-auto;
+    @apply flex gap-4;
   }
-  .menu-btn {
-    @apply md:hidden block ml-auto;
-  }
+
   .hero {
-    @apply bg-center bg-cover flex items-center justify-center text-center h-screen;
+    @apply bg-cover bg-center h-96 flex items-center justify-center text-white px-4;
   }
-  .hero-title {
-    @apply text-4xl md:text-6xl font-bold text-white;
+
+  .hero-text {
+    @apply text-center;
   }
-  .hero-subtitle {
-    @apply mt-4 text-xl md:text-2xl text-white;
-  }
+
   .cta-button {
-    @apply bg-blue-500 text-white py-2 px-6 rounded mt-8 font-semibold transition duration-300 ease-in-out hover:bg-blue-600;
+    @apply bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded;
+  }
+
+  .content-section {
+    @apply my-8 py-4 px-4;
+  }
+}
+
+@media (min-width: 640px) {
+  @layer components {
+    .navbar {
+      @apply px-6 py-3;
+    }
+    
+    .nav-links {
+      @apply gap-6;
+    }
+
+    .hero {
+      @apply px-6;
+    }
+
+    .content-section {
+      @apply py-6 px-8;
+    }
+
+    .cta-button {
+      @apply px-6;
+    }
   }
 }
