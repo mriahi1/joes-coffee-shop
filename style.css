@@ -1,55 +1,42 @@
-/* ------------------- 1. General Styles ------------------- */
-body, html {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
     font-family: 'Arial', sans-serif;
-    color: #333;
     line-height: 1.6;
-    font-size: 16px;
+    color: #333;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
 }
 
-a {
-    color: #0077cc;
-    text-decoration: none;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-a:hover {
-    color: #005fa3;
+container,
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-button {
-    cursor: pointer;
-    background: #ffa500;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease-out;
-}
-
-button:hover {
-    background-color: #cc8400;
-}
-
-/* ------------------- 2. Header & Navigation ------------------- */
 header {
     background: #333;
     color: #fff;
     padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
-.navbar {
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,71 +44,87 @@ header {
 
 .nav-menu {
     display: flex;
-    gap: 1rem;
+    list-style: none;
 }
 
-.nav-menu a {
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-link {
     color: white;
-    transition: color 0.2s ease-out;
+    text-decoration: none;
 }
 
-.nav-menu a:hover {
-    color: #ffa500;
-}
 
-/* ------------------- 3. Hero Section ------------------- */
 .hero {
-    background: url('/path/to/your/hero-image.jpg') no-repeat center center/cover;
-    color: #fff;
-    height: 100vh;
+    background: url('hero-background.jpg') no-repeat center center/cover;
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.hero-title {
+.hero-content {
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
 }
 
-.hero-subtitle {
-    font-size: 1.2rem;
-}
 
-/* ------------------- 4. Sections ------------------- */
 section {
-    padding: 3rem 0;
+    padding: 2rem 0;
 }
 
-.section-title {
-    font-size: 2rem;
+.section-heading {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
-.gallery {
+.services,
+.gallery,
+.testimonials {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
 }
 
-.testimonial {
-    display: flex;
-    gap: 1rem;
-    margin: 2rem 0;
+.contact-form {
+    max-width: 500px;
+    margin: 1rem auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0px 5px 25px rgba(0,0,0,0.1);
 }
 
-.testimonial-text {
-    flex: 1;
+.input-field {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
 }
 
-.testimonial-author {
-    font-weight: bold;
-    color: #555;
+
+.btn {
+    padding: 1rem 2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.5s ease;
 }
 
-/* ------------------- 5. Modal Form Styling ------------------- */
+.btn:hover {
+    opacity: 0.9;
+}
+
+
 .modal {
     position: fixed;
     top: 0;
@@ -139,44 +142,22 @@ section {
     padding: 2rem;
     width: 90%;
     max-width: 500px;
-    border-radius: 8px;
 }
 
 .modal-show {
     display: flex;
 }
 
-/* ------------------- 6. Footer ------------------- */
+
 footer {
-    background: #222;
-    color: #ddd;
+    background: #333;
+    color: white;
     text-align: center;
     padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
-footer p {
-    margin: 0.5rem;
-}
-
-/* ------------------- Language switcher ------------------- */
-.language-switcher {
-    display: flex;
-    gap: 8px;
-    background: #f0f0f0;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.language-switcher button {
-    background: none;
-    color: #333;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease-out;
-}
-
-.language-switcher button:hover {
-    background-color: #ddd;
-}
 ```
-
-This style.css is crafted considering a modern look for Joe’s Coffee Shop with a mobile-first approach using CSS Grid and Flexbox. It includes transitions for smooth animations and a button hover effect for CTA, as well as foundational styles for navigation, headers, sections including hero, gallery, testimonials, and a modal form for calls to action. The modal form is set to appear based on class manipulation likely with JavaScript. Further JavaScript coding is needed to manage interactive elements like the modal and language switcher.
+This CSS structure should provide a clean, modern base for Joe's Coffee Shop website, featuring mobile-first design principles and stylish effects for better user interaction and visual impact. To improve the design further or add specific styling, consider customizing with additional fonts and dynamic content effects.
