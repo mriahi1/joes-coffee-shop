@@ -1,87 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Enjoy the finest coffee from around the world at Joe's Coffee Shop.">
-    <meta name="keywords" content="Joe's Coffee Shop, coffee, beverages, snacks, barista">
-    <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Discover our world-class coffee and cozy atmosphere.">
-    <meta property="og:image" content="https://source.unsplash.com/1600x900/?coffee">
-    <meta property="og:url" content="https://joescoffeeshop.com">
-    <meta property="og:type" content="website">
-    <title>Joe's Coffee Shop</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Welcome to Joe's Coffee Shop - the best coffee in town!">
+<meta property="og:title" content="Joe's Coffee Shop">
+<meta property="og:description" content="Discover fresh coffee and comfy vibes at Joe's Coffee Shop.">
+<meta property="og:image" content="https://source.unsplash.com/1600x900/?Café,&,Bakery,business">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+<title>Joe's Coffee Shop</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="language-switcher">
-                <button aria-label="Switch to French" onclick="switchLang('fr')">FR</button>
-                <button aria-label="Switch to English" onclick="switchLang('en')">EN</button>
-            </div>
-        </nav>
-        <div class="hero" style="background-image: url('https://source.unsplash.com/1600x900/?coffee');">
-            <h1>Welcome to Joe's Coffee Shop</h1>
-            <button id="bookTableBtn">Book a Table</button>
+<header>
+    <nav id="navbar">
+        <div id="menu" onclick="toggleMenu()">☰</div>
+        <ul id="menuItems" class="hidden">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="language-switcher">
+            <button onclick="switchLanguage('en')">EN</button>
+            <button onclick="switchLanguage('fr')">FR</button>
         </div>
-    </header>
+    </nav>
+    <div class="hero">
+        <img src="https://source.unsplash.com/1600x900/?Café,&,Bakery,business" alt="Joe's Coffee Shop">
+        <h1>Jouez dans notre monde de café</h1>
+        <button id="bookTableBtn">Book a Table</button>
+    </div>
+</header>
 
-    <main>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Experience the best coffee and pastries in a warm, inviting atmosphere.</p>
-        </section>
-        <section id="menu">
-            <h2>Our Menu</h2>
-            <p>Check out our wide variety of coffee blends, teas, and snacks.</p>
-        </section>
-        <section id="gallery">
-            <h2>Gallery</h2>
-            <img src="https://source.unsplash.com/400x300/?cafe" alt="Cafe view">
-            <img src="https://source.unsplash.com/400x300/?espresso" alt="Espresso shot">
-            <img src="https://source.unsplash.com/400x300/?coffee-shop" alt="Coffee shop atmosphere">
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Reach out to us for events or reservation queries.</p>
-        </section>
-    </main>
-
-    <div id="modal" aria-hidden="true" class="hidden">
-        <form id="bookingForm" novalidate>
-            <h3>Book a Table</h3>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <form id="bookingForm" onsubmit="return validateForm()">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required minlength="2">
+            <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             <label for="date">Date:</label>
             <input type="date" id="date" name="date" required>
             <label for="time">Time:</label>
             <input type="time" id="time" name="time" required>
-            <label for="guests">Number of Guests:</label>
-            <input type="number" id="guests" name="guests" required min="1" max="10">
-            <button type="submit">Submit</button>
-            <button type="button" onclick="closeModal()">Close</button>
+            <input type="submit" value="Submit">
         </form>
     </div>
+</div>
 
-    <footer>
-        <p>&copy; 2023 Joe's Coffee Shop.</p>
-    </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
