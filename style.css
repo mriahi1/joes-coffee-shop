@@ -1,55 +1,43 @@
-@import 'https://cdn.jsdelivr.net/npm/tailwindcss@^3.0/dist/tailwind.min.css';
+@import "https://cdn.jsdelivr.net/npm/tailwindcss@^3.0/dist/tailwind.min.css";
 
-@layer base {
-  .hero {
+.hero {
     background-image: url('path/to/your/image.jpg');
     background-size: cover;
     background-position: center;
-  }
 }
 
-@layer components {
-  .navbar {
-    @apply bg-white px-4 py-2 shadow-md sticky top-0 z-50;
-  }
-
-  .nav-links {
-    @apply flex flex-col md:flex-row md:space-x-4 items-center;
-  }
-
-  .nav-item {
-    @apply text-gray-700 hover:text-blue-600 transition-colors duration-300;
-  }
-
-  .hero-text {
-    @apply text-white text-center md:text-left;
-  }
-
-  .cta-button {
-    @apply bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors duration-300;
-  }
-
-  .section {
-    @apply my-12 px-4;
-  }
-
-  .section-heading {
-    @apply text-gray-900 text-2xl font-semibold mb-4;
-  }
-
-  .flex-center {
-    @apply flex justify-center items-center;
-  }
-
-  .footer {
-    @apply bg-gray-800 text-white py-4 mt-8;
-  }
+.navbar {
+    @apply sticky top-0 bg-white shadow-md z-50;
 }
 
-@media screen and (min-width: 768px) {
-  @layer components {
-    .nav-links {
-      @apply space-x-8;
-    }
-  }
+.menu-item {
+    @apply text-gray-700 hover:text-gray-900 font-semibold py-2 px-4;
+}
+
+.container {
+    @apply max-w-7xl mx-auto px-4;
+}
+
+.header {
+    @apply flex justify-between items-center py-6;
+}
+
+.hero-content {
+    @apply text-center py-36;
+}
+
+.hero-heading {
+    @apply text-4xl font-bold text-white;
+}
+
+.hero-text {
+    @apply text-xl text-gray-200 mt-4;
+}
+
+.cta-button {
+    @apply bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded;
+}
+
+.footer {
+    @apply bg-gray-800 text-white text-center p-4;
 }

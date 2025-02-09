@@ -1,31 +1,33 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.data('pageState', () => ({
-        isNavMenuOpen: false,
+    Alpine.data('languageSwitcher', () => ({
         lang: 'en',
-        langText: {
-            en: {
-                toggleNav: "Toggle Navigation",
-                home: "Home",
-                services: "Services",
-                contact: "Contact",
-                language: "EN"
-            },
-            fr: {
-                toggleNav: "Changer Navigation",
-                home: "Accueil",
-                services: "Services",
-                contact: "Contact",
-                language: "FR"
-            }
-        },
         toggleNavMenu() {
-            this.isNavMenuOpen = !this.isNavMenuOpen;
+            let menu = document.querySelector('#navMenu');
+            menu.classList.toggle('hidden');
         },
         switchLanguage() {
             this.lang = this.lang === 'en' ? 'fr' : 'en';
+            document.documentElement.lang = this.lang;
+            this.updatePageText();
         },
-        currentText(key) {
-            return this.langText[this.lang][key];
+        updatePageText() {
+            const texts = {
+                en: {
+                    greeting: "Hello",
+                    description: "This is a description in English."
+                },
+                fr: {
+                    greeting: "Bonjour",
+                    description: "Ceci est une description en Français."
+                }
+            };
+
+            document.querySelectorAll('[data-key]').forEach(element => {
+                let key = element.getAttribute('data-key');
+                if (texts[this.lang][key]) {
+                    element.textContent = texts[this.lang][key];
+                }
+            });
         }
     }));
 });
