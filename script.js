@@ -1,24 +1,23 @@
 document.addEventListener('alpine:init', () => {
-  Alpine.data('languageSwitcher', () => ({
-    lang: 'en',
-    messages: {
-      greeting: {
-        en: 'Hello',
-        fr: 'Bonjour'
-      },
-      question: {
-        en: 'How are you?',
-        fr: 'Comment ça va?'
-      }
-    },
-    changeLang(newLang) {
-      this.lang = newLang;
-    },
-    getGreeting() {
-      return this.messages.greeting[this.lang];
-    },
-    getQuestion() {
-      return this.messages.question[this.lang];
-    }
-  }));
+    Alpine.data('navigation', () => ({
+        isOpen: false,
+        toggleNavMenu() {
+            this.isOpen = !this.isOpen;
+        }
+    }));
+
+    Alpine.data('languageSwitcher', () => ({
+        lang: 'en',
+        content: {
+            home: { en: "Home", fr: "Accueil" },
+            about: { en: "About", fr: "À propos" },
+            contact: { en: "Contact", fr: "Contact" }
+        },
+        switchLanguage(lang) {
+            this.lang = lang;
+        },
+        translate(key) {
+            return this.content[key][this.lang];
+        }
+    }));
 });

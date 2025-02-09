@@ -3,67 +3,31 @@
 @tailwind utilities;
 
 @layer components {
-    .navbar {
-        @apply bg-white px-6 py-4 shadow-md;
-    }
+  .navbar {
+    @apply bg-white p-4 md:flex md:justify-between md:items-center;
+  }
 
-    .nav-brand {
-        @apply text-xl font-bold;
-    }
+  .navbar-menu {
+    @apply flex flex-col md:flex-row md:space-x-8;
+  }
+  
+  .hero {
+    @apply bg-cover bg-center bg-no-repeat min-h-screen flex justify-center items-center p-4;
+  }
 
-    .nav-links {
-        @apply hidden md:flex space-x-4;
-    }
+  .hero-title {
+    @apply text-4xl md:text-6xl font-bold text-white text-center;
+  }
 
-    .nav-item {
-        @apply text-gray-700 hover:text-gray-900;
-    }
+  .cta-button {
+    @apply mt-6 py-2 px-6 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 transition duration-300;
+  }
 
-    .menu-btn {
-        @apply md:hidden text-gray-700;
-    }
+  .content {
+    @apply p-4 text-center leading-relaxed text-lg;
+  }
 
-    .hero {
-        @apply bg-cover bg-center min-h-screen flex items-center justify-center;
-    }
-
-    .hero-content {
-        @apply text-center text-white;
-    }
-
-    .hero-title {
-        @apply text-4xl font-bold mb-4;
-    }
-
-    .hero-subtitle {
-        @apply text-2xl mb-8;
-    }
-
-    .cta-button {
-        @apply bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 shadow transition ease-in-out duration-300;
-    }
-
-    .section {
-        @apply py-8 px-6;
-    }
-
-    .feature {
-        @apply flex flex-col items-center text-center;
-    }
-
-    .feature-icon {
-        @apply text-4xl mb-4;
-    }
-
-    .feature-title {
-        @apply text-lg font-semibold;
-    }
-
-    .feature-description {
-        @apply text-gray-700;
-    }
-
-    .footer {
-        @apply bg-gray-800 text-white text-center p-4;
-    }
+  .footer {
+    @apply bg-gray-800 text-white p-4 text-center;
+  }
 }
