@@ -1,11 +1,15 @@
-/* 1. General Styles */
-body, html {
+/* --- 1. General Styles --- */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    color: #333;
-    overflow-x: hidden;
+}
+
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    scroll-behavior: smooth;
 }
 
 a {
@@ -13,165 +17,167 @@ a {
     color: inherit;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
 button {
     cursor: pointer;
-    font-size: 16px;
-    border: none;
-    outline: none;
 }
 
 .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
+    width: 90%;
+    margin: auto;
 }
 
-/* Smooth transitions */
-* {
-    transition: all 0.3s ease-in-out;
-}
-
-/* 2. Header & Navigation */
+/* --- 2. Header & Navigation --- */
 header {
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2%;
+    background: #00704a;
+    color: white;
 }
 
 .nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
+    gap: 15px;
+    list-style: none;
 }
 
-.nav-menu {
-    display: flex;
-    gap: 20px;
+.nav-link {
+    color: white;
+    font-size: 1rem;
 }
 
-.nav-item {
-    padding: 10px 15px;
+.language-switcher {
+    font-size: 0.9rem;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-/* 3. Hero Section */
+.language-switcher:hover {
+    color: #dddddd;
+}
+
+/* --- 3. Hero Section --- */
 .hero {
-    background-image: url('/path/to/coffee-shop-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    display: grid;
-    place-items: center;
-    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    background: url('./images/coffee-bg.jpg') no-repeat center center/cover;
+}
+
+.hero-content {
     text-align: center;
+    color: #ffffff;
 }
 
 .hero h1 {
-    color: #fff;
-    font-size: 2.5em;
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 .hero p {
-    color: #fff;
-    font-size: 1.2em;
+    font-size: 1.5rem;
 }
 
-/* 4. Sections */
-section {
-    padding: 60px 0;
-}
-
-.section-title {
-    font-size: 2em;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* Layout using Flexbox & Grid */
-.services {
+/* --- 4. Sections (About, Services, Gallery, Testimonials, Contact) --- */
+.section {
+    padding: 2rem 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-gap: 20px;
 }
 
-.service-item {
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+.section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
 }
 
-/* 5. Modal Form Styling */
+.about, .services, .gallery, .testimonials, .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- 5. Modal Form Styling (CTA Popup) --- */
 .modal {
+    display: none;
     position: fixed;
-    top: 0;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+    z-index: 999;
 }
 
 .modal-content {
     background: #fff;
-    padding: 20px;
-    border-radius: 10px;
     width: 90%;
     max-width: 500px;
+    margin: 10% auto;
+    padding: 20px;
+    animation: modalAppear 0.5s ease-out;
 }
 
-.modal-show {
-    display: flex;
+@keyframes modalAppear {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* 6. Footer */
+/* --- 6. Footer --- */
 footer {
-    background: #333;
+    background: #222;
     color: #fff;
-    padding: 20px 0;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
-footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* CTA Button styles */
+/* CTA Button Animations */
 .cta-button {
-    background-color: #f04e23;
-    color: #fff;
-    padding: 10px 20px;
+    padding: 0.8rem 2rem;
+    background: #c73010;
+    border: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    color: #ffffff;
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
 .cta-button:hover {
-    background-color: #c03d1d;
+    background: #a5280e;
 }
 
-/* Language switcher */
-.language-switcher {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    z-index: 200;
-}
+/* Responsive Design */
+@media only screen and (min-width: 768px) {
+    .nav {
+        gap: 30px;
+    }
 
-.language-switcher select {
-    border: none;
-    outline: none;
+    .hero-content {
+        max-width: 50%;
+    }
+
+    .section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .modal-content {
+        margin: 5% auto;
+    }
 }
 ```
 
-This CSS provides a comprehensive styling framework for Joe's Coffee Shop, adhering to modern design principles using Flexbox, CSS Grid, and smooth transitions. Adjustments can be made based on further specifics or design updates. This file assumes some basic HTML structure that matches class and ID usage within the styles.
+This CSS file implements a clean, modern, and mobile-first responsive design for Joe's Coffee Shop. It integrates animations and transitions to enhance user experience and also makes use of CSS Grid and Flexbox for layout structure, ensuring the site is visually engaging and functionally smooth. The styles are geared towards facilitating an attractive and minimal interface that aligns well with modern cafe or restaurant aesthetics.

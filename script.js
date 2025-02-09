@@ -1,77 +1,93 @@
-Below is the JavaScript (`script.js`) file code to implement the requested features for Joe's Coffee Shop:
+// script.js
 
-```javascript
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
+    initSmoothScrolling();
+    initMobileNavToggle();
+    initLanguageSwitcher();
+    initCTAClickTracking();
+    initModalFormToggle();
+});
+
+function initSmoothScrolling() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+}
+
+function initMobileNavToggle() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
     
-    // Smooth Scrolling for navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = e.target.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({
-                behavior: 'smooth'
+    navToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('is-active');
+    });
+}
+
+function initLanguageSwitcher() {
+    const languageToggleButton = document.querySelector('.language-toggle');
+    const currentLanguageDisplay = document.querySelector('.current-language');
+
+    languageToggleButton.addEventListener('click', function() {
+        const currentLanguage = currentLanguageDisplay.innerText;
+        if (currentLanguage === 'EN') {
+            currentLanguageDisplay.innerText = 'FR';
+            // Add further implementation to handle site content language switching
+        } else {
+            currentLanguageDisplay.innerText = 'EN';
+            // Revert to English language content
+        }
+    });
+}
+
+function initCTAClickTracking() {
+    const ctaButtons = document.querySelectorAll('.cta-button');
+    
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            trackEvent('CTA Click', {
+                location: button.innerText
             });
         });
     });
+}
 
-    // Mobile-friendly navigation toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navigation = document.querySelector('.navigation');
-    menuToggle.addEventListener('click', () => {
-        navigation.classList.toggle('open');
-    });
+function trackEvent(action, details) {
+    console.log(`Event Tracked: ${action}`, details);
+    // Implementation can be added for integration with analytics tools
+}
 
-    // Language switcher functionality
-    const langToggle = document.querySelector('.lang-toggle');
-    langToggle.addEventListener('click', () => {
-        const currentLang = langToggle.textContent.trim();
-        if (currentLang === 'EN') {
-            langToggle.textContent = 'FR';
-            // This is where you could update text/content to French
-        } else {
-            langToggle.textContent = 'EN';
-            // Switch back to English
-        }
-    });
-
-    // CTA click tracking for conversion optimization
-    const ctaButton = document.querySelector('.cta-button');
-    ctaButton.addEventListener('click', () => {
-        console.log('CTA button clicked!'); // This would typically be a tracker event like Google Analytics event
-    });
-
-    // Modal form toggle
+function initModalFormToggle() {
     const modal = document.querySelector('.modal');
-    const openModalBtn = document.querySelectorAll('.open-modal');
-    const closeModalArea = document.querySelector('.modal-background');
+    const modalBg = document.querySelector('.modal-background');
+    const modalCTA = document.querySelectorAll('.modal-cta-button');
 
-    openModalBtn.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent body scrolling when modal is open
+    modalCTA.forEach(cta => {
+        cta.addEventListener('click', () => {
+            modal.classList.add('is-active');
         });
     });
 
-    closeModalArea.addEventListener('click', (e) => {
-        if(e.target === closeModalArea) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Re-enable body scrolling when modal is closed
-        }
+    modalBg.addEventListener('click', () => {
+        modal.classList.remove('is-active');
     });
-
-});
-
+}
 ```
-### Explanation of the Code
-1. **Smooth Scrolling**: Attached click event listeners to `.nav-link` elements that prevent default link behavior and smoothly scroll to the section identifiers.
 
-2. **Mobile Navigation Toggle**: A menu toggle button with the class `.menu-toggle` toggles the navigation menu’s visibility by toggling the class `open`.
+### Explanation of the script.js code:
 
-3. **Language Switcher**: A button toggles between 'EN' (English) and 'FR' (French). Actual text/content changes would require integration with the site’s content.
+1. **Document Initialization**: All functions setup to initialize after the DOM is fully loaded.
+2. **Smooth Scrolling**: Scrolls smoothly to sections in the page when clicking on anchor links.
+3. **Mobile Navigation Toggle**: Allows the navigation menu to be toggled on mobile devices.
+4. **Language Switcher**: Switches text display between English (EN) and French (FR) - functionality should be extended to handle actual site content switching.
+5. **CTA Click Tracking**: Tracks clicks on CTA buttons for analytics purposes. The actual deployment might need integration with tools like Google Analytics.
+6. **Modal Form Toggle**: Handles the opening and closing of a modal form, often used for contact or sign-up purposes.
 
-4. **CTA Click Tracking**: Tracks clicks on a CTA button (class `.cta-button`) for conversion rate optimization. Normally, you would integrate with a tracking tool like Google Analytics here.
-
-5. **Modal Form Toggle**: Allows multiple buttons to open a modal via the `.open-modal` class. Closes the modal when the background (`.modal-background`) is clicked, ensuring it doesn’t close when clicked inside the modal content. It also temporarily disables the background page scrolling to focus user interaction on the modal.
-
-This solution should integrate seamlessly with Joe's Coffee Shop website provided it maintains consistent class naming and basic HTML structure as expected in JavaScript. To enhance, you could further refine exception handling, particularly with query selectors to avoid script errors if elements are absent.
+This script provides a basic frontend interaction setting for a coffee shop website, ensuring smooth navigation, responsive layout interactions, a minimalistic language swap, and user interaction tracking. Effective enhancements could include actual content switching in the language toggle and a more robust analytics integration.
