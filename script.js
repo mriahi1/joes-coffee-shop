@@ -1,27 +1,30 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.data('navigationMenu', () => ({
-        isOpen: false,
-        toggleNavMenu() {
-            this.isOpen = !this.isOpen;
-        }
-    }));
-
-    Alpine.data('languageSwitcher', () => ({
-        currentLanguage: 'EN',
-        textContent: {
+    Alpine.data('app', () => ({
+        showMenu: false,
+        currentLang: 'EN',
+        langContent: {
             EN: {
-                home: "Home",
-                about: "About Us",
-                contact: "Contact"
+                home: 'Home',
+                about: 'About',
+                contact: 'Contact'
             },
             FR: {
-                home: "Accueil",
-                about: "À Propos",
-                contact: "Contact"
+                home: 'Accueil',
+                about: 'À propos',
+                contact: 'Contact'
             }
+        },  
+
+        toggleNavMenu() {
+            this.showMenu = !this.showMenu;
         },
+
         switchLanguage(lang) {
-            this.currentLanguage = lang;
+            this.currentLang = lang;
+        },
+
+        text(key) {
+            return this.langContent[this.currentLang][key];
         }
     }));
 });

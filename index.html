@@ -3,90 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Enjoy expertly brewed coffee and freshly baked pastries at Joe's Coffee Shop. Experience the best local coffee shop in the city!">
+    <meta name="description" content="Experience the best in local coffee and fresh bakery delights at Joe's Coffee Shop.">
     <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Discover the best local coffee and bakery delights in the heart of the city at Joe's Coffee Shop.">
-    <meta property="og:image" content="https://source.unsplash.com/1600x900/?coffee-shop">
+    <meta property="og:description" content="Step into our cozy café for top-quality coffee and freshly baked goods, right in the heart of your community.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.joescoffeeshop.com">
+    <meta property="og:image" content="http://www.joescoffeeshop.com/images/coffee-shop.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css">
     <title>Joe's Coffee Shop</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@2.0.0" integrity=""></script>
 </head>
 <body>
-    <header class="bg-white shadow">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-bold text-2xl lg:text-4xl">Joe's Coffee Shop</a>
-            <div class="flex items-center">
-                <a href="#home" class="p-2">Home</a>
-                <a href="#about" class="p-2">About</a>
-                <a href="#contact" class="p-2">Contact</a>
-                <div x-data="{ open: false }">
-                    <button @click="open = !open" class="px-4 py-2">EN/FR</button>
-                    <div x-show="open" @click.away="open = false">
-                        <button @click="open = false" class="block p-2">EN</button>
-                        <button @click="open = false" class="block p-2">FR</button>
-                    </div>
+    <header class="bg-gray-200">
+        <nav class="container mx-auto flex justify-between items-center p-5">
+            <h1 class="text-3xl font-bold">Joe's Coffee Shop</h1>
+            <div class="space-x-4">
+                <a href="#home" class="text-gray-700 hover:text-gray-900">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-gray-900">About</a>
+                <a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a>
+            </div>
+            <div x-data="{ open: false }">
+                <button @click="open = !open">EN/FR</button>
+                <div x-show="open" @click.away="open = false">
+                    <a href="?lang=en" class="block p-2 text-white bg-gray-800">EN</a>
+                    <a href="?lang=fr" class="block p-2 text-white bg-gray-800">FR</a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <section id="home" class="relative">
-        <img src="https://source.unsplash.com/1600x900/?business" alt="Hero Image" class="w-full h-96 object-cover lazyload">
-        <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-black bg-opacity-50">
-            <h1 class="text-4xl text-white font-bold mb-4">Welcome to Joe's Coffee Shop</h1>
-            <a href="#about" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition duration-300 ease-in-out">Discover More</a>
+    <section id="hero" class="bg-cover bg-center h-screen" style="background-image: url('images/coffee-shop-wide.jpg');">
+        <div class="flex flex-col items-center justify-center h-full bg-black bg-opacity-50">
+            <h2 class="text-4xl text-white mb-4">Discover Your New Favorite Spot</h2>
+            <p class="text-lg text-gray-200 mb-6">Join us for the finest coffee and fresh bakery treats in town.</p>
+            <a href="#about" class="px-6 py-3 bg-yellow-500 text-white font-bold rounded">Explore More</a>
         </div>
     </section>
 
-    <section id="about" class="container mx-auto px-6 py-8">
-        <h2 class="text-2xl font-bold text-center">About Us</h2>
-        <p class="mt-4 text-gray-600">
-            Discover the heart of local flavor and community at Joe’s Coffee Shop, your neighborhood go-to for exceptional brewed experiences. Located in the heart of the city, Joe’s Coffee Shop offers a cozy retreat for coffee aficionados and casual sippers alike. Specializing in high-quality, locally-sourced coffee beans, Joe’s is committed to delivering a rich and aromatic cup every time.
-        </p>
-        <p class="mt-4 text-gray-600">
-            At Joe's, you can start your day right with a perfectly brewed espresso, indulge in a luxurious latte, or savor our specialty cold brews. Each drink is crafted with care by skilled baristas who are passionate about coffee and eager to share their love with every customer.
-        </p>
-        <p class="mt-4 text-gray-600">
-            But Joe’s Coffee Shop isn’t just about coffee. Our bakery section features an array of mouth-watering pastries and freshly baked breads. From delectable croissants to hearty, homemade sandwiches, every item is made from scratch with locally sourced ingredients. Our bakery delights are the perfect complement to our artisan coffees.
-        </p>
-        <p class="mt-4 text-gray-600">
-            We believe in community and comfort, which is why our café is designed to feel like a second home. Our welcoming ambiance invites you to relax, work, or chat in a warm, friendly environment. Free WiFi and ample seating make Joe’s an ideal spot for meetings, studying, or catching up with friends.
-        </p>
-        <p class="mt-4 text-gray-600">
-            Joe’s Coffee Shop proudly supports local farmers and producers, helping promote sustainability within our community. We’re more than just a coffee shop - we’re a vibrant space where coffee, culture, and community blend together harmoniously.
-        </p>
-        <p class="mt-4 text-gray-600">
-            Come visit us today and taste the difference local makes. Whether you're a regular or a first-timer, you’re always part of the Joe’s Coffee Shop family.
+    <section id="about" class="container mx-auto p-8">
+        <h2 class="text-3xl font-bold text-center mb-6">About Us</h2>
+        <p class="text-gray-700 text-lg">
+            Step into Joe’s Coffee Shop, your go-to local café and bakery where fresh flavors and community vibes brew together perfectly! Nestled in the heart of town, Joe's Coffee Shop offers not just a cup of coffee but a bustling atmosphere that’s a favorite among locals...
         </p>
     </section>
 
-    <section id="contact" class="bg-gray-100 py-8">
-        <div class="container mx-auto px-6">
-            <h2 class="text-2xl font-bold text-center">Contact Us</h2>
-            <div class="flex flex-wrap justify-center mt-4">
-                <div class="p-4">
-                    <h3 class="font-bold">Location</h3>
-                    <p>123 Coffee Lane</p>
-                    <p>Main City, MC 12345</p>
-                </div>
-                <div class="p-4">
-                    <h3 class="font-bold">Hours</h3>
-                    <p>Mon - Fri: 7 am - 7 pm</p>
-                    <p>Sat - Sun: 8 am - 8 pm</p>
-                </div>
-                <div class="p-4 w-full md:w-1/2">
-                    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                        <div class="mb-4">
-                            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
-                                Name
-                            </label>
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name">
-                        </div>
-                        <div class="mb-6">
-                            <label class="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                                Email
-                            </label>
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="you@example.com">
-                        </div>
-                        <div class="fl"?>
+    <section id="contact" class="bg-gray-300 p-8">
+        <h2 class="text-3xl font-bold text-center mb-6">Visit Us</h2>
+        <div class="flex flex-col items-center">
+            <p class="text-lg text-gray-800 mb-4">123 Coffee Drive, Brewtown</p>
+            <p class="text-lg text-gray-800 mb-4">Opening Hours: Mon-Fri 8am - 5pm</p>
+            <form class="w-full max-w-lg">
+                <input type="text" placeholder="Your Name" class="mb-2 p-2 w-full" required>
+                <input type="email" placeholder="Your Email" class="mb-2 p-2 w-full" required>
+                <textarea placeholder="Your Message" class="mb-2 p-2 w-full" required></textarea>
+                <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-bold">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js"></script>
+</body>
+</html>
