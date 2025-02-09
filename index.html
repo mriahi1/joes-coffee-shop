@@ -2,74 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Enjoy the best coffee and freshly baked goods at Joe's Coffee Shop, your local café and gathering spot.">
-    <meta property="og:title" content="Joe's Coffee Shop">
-    <meta property="og:description" content="Your local café and bakery offering a variety of coffee and delicious baked goods in a cozy environment.">
-    <meta property="og:image" content="https://placehold.co/1200x600?text=Café+&+Bakery">
-    <meta property="og:type" content="website">
-    <title>Joe's Coffee Shop</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="https://cdn.tailwindcss.com" defer></script>
-</head>
-<body class="font-sans bg-gray-100">
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-            <img src="https://placehold.co/64x64?text=logo" alt="Joe's Coffee Shop Logo">
-            <div class="md:flex space-x-4">
-                <a href="#" class="text-gray-800 hover:text-gray-500">Home</a>
-                <a href="#" class="text-gray-800 hover:text-gray-500">About</a>
-                <a href="#" class="text-gray-800 hover:text-gray-500">Contact</a>
-                <div x-data="{ open: false }" @mouseleave="open = false" class="relative">
-                    <button @mouseover="open = true" class="py-2 px-3 text-gray-800 bg-gray-200 rounded-lg">EN/FR</button>
-                    <div x-show="open" class="absolute mt-2 py-2 w-24 bg-white rounded-lg shadow-xl">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">EN</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">FR</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <section class="relative">
-        <img src="https://placehold.co/1200x600?text=Café+&+Bakery" alt="Café and Bakery" class="w-full h-auto">
-        <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
-            <div class="text-center">
-                <h1 class="text-3xl text-white font-bold">Welcome to Joe's Coffee Shop!</h1>
-                <p class="text-xl text-gray-200 mt-4">Experience the taste of our homemade specialties.</p>
-                <button class="mt-4 bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600">Discover Menu</button>
+    <!-- Primary Meta Tags -->
+    <title>Joe's Coffee Shop - Gourmet Coffee & Fresh Pastries</title>
+    <meta name="title" content="Joe's Coffee Shop - Gourmet Coffee & Fresh Pastries">
+    <meta name="description" content="Experience Joe's Coffee Shop in downtown Manhattan - your ideal place for hand-roasted coffee and delicious baked goods crafted with love.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.joescoffeeshop.com/">
+    <meta property="og:title" content="Joe's Coffee Shop - Gourmet Coffee & Fresh Pastries">
+    <meta property="og:description" content="Experience Joe's Coffee Shop in downtown Manhattan - your ideal place for hand-roasted coffee and delicious baked goods crafted with love.">
+    <meta property="og:image" content="https://placehold.co/1200x600?text=Café+&+Bakery">
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="bg-white py-4 px-8 flex justify-between items-center">
+        <img src="https://placehold.co/64x64?text=logo" alt="Joe's Coffee Shop Logo" class="logo">
+        <div>
+            <a href="#home" class="text-gray-800 hover:text-gray-600 ml-4">Home</a>
+            <a href="#about" class="text-gray-800 hover:text-gray-600 ml-4">About</a>
+            <a href="#contact" class="text-gray-800 hover:text-gray-600 ml-4">Contact</a>
+        </div>
+        <div x-data="{ open: false }">
+            <button @click="open = !open">EN/FR</button>
+            <div x-show="open" class="absolute">
+                <a href="#" class="block">EN</a>
+                <a href="#" class="block">FR</a>
             </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" style="background-image: url('https://placehold.co/1200x600?text=Café+&+Bakery');" class="bg-cover bg-center h-screen flex items-center justify-center text-white">
+        <div class="text-center">
+            <h1 class="text-4xl font-bold">Indulge in Artisan Coffee &amp; Pastries</h1>
+            <p class="text-xl mt-2">Each cup and bite tells a story of passion and craftsmanship</p>
+            <a href="#about" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Discover Our Story</a>
         </div>
     </section>
 
-    <section class="container mx-auto px-6 py-8">
-        <h2 class="text-2xl font-bold text-gray-800">About Joe's Coffee Shop</h2>
-        <p class="mt-4 text-gray-600">
-            Welcome to Joe's Coffee Shop, your go-to café and bakery nestled in the heart of your local community! At Joe's, we're passionate about serving perfectly brewed, artisanal coffee paired with an assortment of freshly baked goodies. Dive into our selection of rich, flavorful coffee blends that keep our customers coming back. Whether you prefer a robust espresso, a smooth latte, or an invigorating Americano, Joe's has something to delight every coffee enthusiast.
-        </p>
-        <p class="mt-4 text-gray-600">
-            Not just a coffee shop, Joe's also boasts a full bakery offering everything from decadent pastries and buttery croissants to hearty, homemade sandwiches and salads made with locally sourced ingredients. Each item is crafted with care, ensuring you can taste the quality in every bite.
-        </p>
-        <p class="mt-4 text-gray-600">
-            Joe's Coffee Shop is more than just a place to grab a coffee; it's a local gathering spot where community members meet, work, and relax in a cozy, inviting atmosphere. With free Wi-Fi, comfortable seating, and friendly staff, Joe's provides the perfect setting for catching up on work, enjoying a book, or chatting with friends.
+    <!-- About Section -->
+    <section id="about" class="py-16 px-8">
+        <h2 class="text-3xl font-bold text-center mb-6">About Joe's Coffee Shop</h2>
+        <p class="text-gray-700 text-lg">
+            Indulge in the heartwarming, artisanal experience at Joe's Coffee Shop, your go-to neighborhood Café &amp; Bakery in downtown Manhattan. As a cherished local hotspot since 2015, we pride ourselves on crafting the finest hand-roasted coffee and delectable baked goods that remind you of home with every bite.
         </p>
     </section>
 
-    <section class="container mx-auto px-6 py-8">
-        <h2 class="text-2xl font-bold text-gray-800">Contact Us</h2>
-        <p class="mt-4 text-gray-600">Visit us at 123 Coffee Ln, Somewhere City, 90210</p>
-        <p class="mt-1 text-gray-600">Open daily from 8am to 8pm</p>
-        <form class="mt-8">
-            <input type="text" placeholder="Your Name" class="py-2 px-4 border rounded-lg w-full mb-4">
-            <input type="email" placeholder="Your Email" class="py-2 px-4 border rounded-lg w-full mb-4">
-            <textarea placeholder="Your Message" class="py-2 px-4 border rounded-lg w-full mb-4"></textarea>
-            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 w-full">Send Message</button>
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-100 py-16 px-8 text-center">
+        <h2 class="text-3xl font-bold mb-6">Visit Us</h2>
+        <p>123 Coffee Ave, Suite 101, Manhattan, NY 10001</p>
+        <p>Open Monday - Saturday: 7AM - 7PM</p>
+        <form action="#submit" method="POST" class="mt-4">
+            <input type="text" placeholder="Your Email" class="border p-2 rounded mr-2">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">Subscribe</button>
         </form>
     </section>
 
-    <footer class="bg-gray-800 text-white text-center p-4">
-        © 2023 Joe's Coffee Shop. All rights Reserved.
-    </footer>
+    <!-- Alpine.js and Tailwind Configurator -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
 </body>
 </html>

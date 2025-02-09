@@ -1,8 +1,7 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.data('langSwitcher', () => ({
+    Alpine.data('languageSwitcher', () => ({
         lang: 'en',
-
-        toggleLang(newLang) {
+        changeLanguage(newLang) {
             this.lang = newLang;
         }
     }));
