@@ -1,55 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Welcome to Joe's Coffee Shop - the best coffee in town!">
-<meta property="og:title" content="Joe's Coffee Shop">
-<meta property="og:description" content="Discover fresh coffee and comfy vibes at Joe's Coffee Shop.">
-<meta property="og:image" content="https://source.unsplash.com/1600x900/?Café,&,Bakery,business">
-<meta property="og:type" content="website">
-<link rel="stylesheet" href="style.css">
-<title>Joe's Coffee Shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Joe's Coffee Shop">
+    <meta property="og:description" content="Enjoy the best coffee in town at Joe's Coffee Shop.">
+    <meta property="og:image" content="https://via.placeholder.com/1600x900?text=No+Image+Found">
+    <meta property="og:url" content="http://www.joescoffeeshop.com">
+    <title>Joe's Coffee Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-<header>
-    <nav id="navbar">
-        <div id="menu" onclick="toggleMenu()">☰</div>
-        <ul id="menuItems" class="hidden">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="language-switcher">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="burger-menu" onclick="toggleNavMenu()">
+            &#9776;
+        </div>
+        <div class="lang-switcher">
             <button onclick="switchLanguage('en')">EN</button>
             <button onclick="switchLanguage('fr')">FR</button>
         </div>
     </nav>
-    <div class="hero">
-        <img src="https://source.unsplash.com/1600x900/?Café,&,Bakery,business" alt="Joe's Coffee Shop">
-        <h1>Jouez dans notre monde de café</h1>
-        <button id="bookTableBtn">Book a Table</button>
-    </div>
-</header>
 
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <form id="bookingForm" onsubmit="return validateForm()">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
-            <label for="time">Time:</label>
-            <input type="time" id="time" name="time" required>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-</div>
+    <!-- Hero Section -->
+    <header class="hero" role="banner">
+        <img src="https://via.placeholder.com/1600x900?text=No+Image+Found" alt="Joe's Coffee Shop">
+        <h1>Welcome to Joe's Coffee Shop</h1>
+        <button class="cta-button" onclick="openModal()">Book a Table</button>
+    </header>
 
-<script src="script.js"></script>
+    <!-- Modal Form -->
+    <div class="modal" id="bookingModal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form action="#" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>
