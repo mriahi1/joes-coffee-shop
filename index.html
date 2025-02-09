@@ -1,61 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Joe's Coffee Shop, your perfect retreat for the best handpicked coffees and fresh bakery delights in town.">
-    <meta property="og:title" content="Joe's Coffee Shop" />
-    <meta property="og:description" content="Your favorite local spot for coffee and baked goods." />
-    <meta property="og:image" content="https://placehold.co/1200x600?text=Café+&+Bakery" />
-    <meta property="og:type" content="website" />
-    <link rel="icon" href="https://placehold.co/64x64?text=logo" />
+    <meta name="description" content="Visit Joe's Coffee Shop for the finest locally-sourced coffee and freshly baked goods in the heart of the community.">
+    <meta name="keywords" content="Coffee, Bakery, Coffee Shop, Joe's Coffee, Fresh Bakery">
+    <meta property="og:title" content="Joe's Coffee Shop">
+    <meta property="og:description" content="Your neighborhood haven for coffee aficionados and bakery enthusiasts">
+    <meta property="og:image" content="https://placehold.co/1200x600?text=Caf%C3%A9+&+Bakery">
+    <meta property="og:type" content="website">
     <title>Joe's Coffee Shop</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
-<body x-data="{ lang: 'en' }" class="antialiased text-gray-800">
 
-    <header class="bg-white shadow">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <img src="https://placehold.co/64x64?text=logo" alt="" class="logo">
-            <nav>
-                <ul class="flex space-x-4">
-                    <li><a href="#" class="text-green-600 hover:text-green-800">Home</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-gray-800">About</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-gray-800">Contact</a></li>
+<body class="font-inter" x-data="{ lang: 'en'}">
+    <header>
+        <nav class="bg-gray-200 shadow-lg p-4">
+            <div class="flex items-center justify-between container mx-auto">
+                <img src="https://placehold.co/64x64?text=logo" alt="Joe's Coffee Shop Logo">
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="text-gray-800 hover:text-red-500" x-text="lang === 'en' ? 'Home' : 'Accueil'"></a></li>
+                    <li><a href="#" class="text-gray-800 hover:text-red-500" x-text="lang === 'en' ? 'About' : 'À propos'"></a></li>
+                    <li><a href="#" class="text-gray-800 hover:text-red-500" x-text="lang === 'en' ? 'Contact' : 'Contact'"></a></li>
                 </ul>
-            </nav>
-            <button @click="lang = (lang === 'en' ? 'fr' : 'en')" x-text="lang.toUpperCase()" class="px-4 py-1 border rounded text-gray-800 hover:text-gray-600">
-                EN
-            </button>
-        </div>
+                <button @click="lang = (lang === 'en' ? 'fr' : 'en')" x-text="lang.toUpperCase()" class="text-gray-800 hover:text-gray-600">
+                    EN
+                </button>
+            </div>
+        </nav>
     </header>
 
-    <section class="hero w-full bg-cover bg-center" style="background-image: url('https://placehold.co/1200x600?text=Café+&+Bakery'); height: 500px;">
-        <div class="container mx-auto text-center pt-20">
-            <h1 x-text="lang === 'en' ? 'Welcome to Joe\'s Coffee Shop' : 'Bienvenue chez Joe\'s Coffee Shop'" class="text-4xl text-white font-bold"></h1>
-            <p x-text="lang === 'en' ? 'Your favorite spot for coffee and bakery delights.' : 'Votre spot favori pour le café et les délices de boulangerie.'" class="text-xl text-white mt-4"></p>
-            <a href="#" class="mt-10 inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded">
-                View Menu
-            </a>
+    <section class="hero bg-cover bg-center py-20" style="background-image: url('https://placehold.co/1200x600?text=Caf%C3%A9+&+Bakery')">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl text-gray-800 font-bold mb-4" x-text="lang === 'en' ? 'Welcome to Joe\'s Coffee Shop' : 'Bienvenue chez Joe\'s Coffee Shop'"></h1>
+            <p class="text-xl text-gray-700 mb-8" x-text="lang === 'en' ? 'Your favorite spot for coffee and bakery delights.' : 'Votre café préféré pour le café et les délices de la boulangerie.'"></p>
+            <a href="#" class="text-white bg-red-500 px-6 py-2 rounded-full hover:bg-red-600" x-text="lang === 'en' ? 'Discover More' : 'Découvrez plus'"></a>
         </div>
     </section>
 
-    <section class="about my-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-2" x-text="lang === 'en' ? 'About Us' : 'À Propos'"></h2>
-            <p x-text="lang === 'en' ? 'Nestled in the heart of your local community, Joe\'s Coffee Shop offers the finest coffee paired with delicious, freshly-baked goods. A perfect place for coffee lovers!' : 'Niché au cœur de votre communauté locale, Joe\'s Coffee Shop offre le meilleur café associé à de délicieux produits fraîchement cuits. Un endroit parfait pour les amateurs de café!'"></p>
+    <section class="about py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl text-gray-800 font-bold mb-4" x-text="lang === 'en' ? 'About Us' : 'À propos de nous'"></h2>
+            <p class="text-gray-600" x-text="lang === 'en' ? 'Welcome to Joe\'s Coffee Shop, your neighborhood haven for coffee aficionados and bakery enthusiasts alike! Located in the heart of the community, Joe\'s Coffee Shop offers a cozy retreat for anyone seeking to savor artisanal brews and freshly baked treats.' : 'Bienvenue chez Joe\'s Coffee Shop, votre havre de quartier pour les amateurs de café et de boulangerie! Situé au cœur de la communauté, le Joe\'s Coffee Shop offre un refuge confortable pour tous ceux qui cherchent à savourer des infusions artisanales et des friandises fraîchement cuites.'"></p>
         </div>
     </section>
 
-    <section class="contact bg-gray-200 py-10">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-2" x-text="lang === 'en' ? 'Contact Us' : 'Nous Contacter'"></h2>
-            <p x-text="lang === 'en' ? 'Visit us or give us a call. Location: 123 Coffee Ave, Springfield, Hours: Mon-Fri 8am-5pm' : 'Visitez-nous ou appelez-nous. Adresse : 123 Coffee Ave, Springfield, Heures : lun.-ven. 8h-17h'">
-                Location, hours.
-            </p>
+    <section class="contact py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl text-gray-800 font-bold mb-4" x-text="lang === 'en' ? 'Contact Us' : 'Nous contacter'"></h2>
+            <p class="text-gray-600" x-text="lang === 'en' ? 'Visit us or send us a message to learn more about our coffee and bakery offerings.' : 'Visitez-nous ou envoyez-nous un message pour en savoir plus sur nos offres de café et de boulangerie.'"></p>
+            <address class="not-italic mt-4">
+                <strong x-text="lang === 'en' ? 'Location:' : 'Emplacement:'"></strong> 
+                1234 Coffee Drive, Flavor Town
+                <br>
+                <strong x-text="lang === 'en' ? 'Hours:' : 'Heures:'"></strong> 
+                Mon-Sun: 8 AM - 8 PM
+            </address>
         </div>
     </section>
 
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+    <footer class="bg-gray-200 py-4 text-center">
+        <p x-text="lang === 'en' ? '&copy; 2023 Joe\'s Coffee Shop. All Rights Reserved.' : '&copy; 2023 Joe\'s Coffee Shop. Tous droits réservés.'"></p>
+    </footer>
 </body>
+
 </html>
